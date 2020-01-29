@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Sidebar from "react-sidebar";
 import Navbar from "../Navbar";
-import SideNav from "./SideNav";
+import NavItems from "./NavItems";
+import "./sidebar.css";
 
 export default class extends Component {
   constructor(props) {
@@ -16,16 +17,20 @@ export default class extends Component {
 
   render() {
     return (
-      <Sidebar
-        sidebar={<SideNav />}
-        open={this.state.sidebarOpen}
-        onSetOpen={this.onSetSidebarOpen}
-        styles={styles.sidebar}
-        sidebarClassName="sidebar-custome"
-        pullRight
-      >
-        <Navbar toggleSidebar={this.onSetSidebarOpen} />
-      </Sidebar>
+      <div>
+        <Sidebar
+          sidebar={<NavItems />}
+          open={this.state.sidebarOpen}
+          onSetOpen={this.onSetSidebarOpen}
+          styles={styles.sidebar}
+          sidebarClassName="sidebar-custome"
+          pullRight
+        >
+          <Navbar toggleSidebar={this.onSetSidebarOpen} />
+          {this.props.children}
+        </Sidebar>
+        <div className="clearfix">...</div>
+      </div>
     );
   }
 }

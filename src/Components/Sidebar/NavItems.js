@@ -1,5 +1,4 @@
 import React from "react";
-import "./sidenav.css";
 
 export default () => (
   <div className="sidenav">
