@@ -7,7 +7,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarOpen: true
+      sidebarOpen: false
     };
   }
 
@@ -21,6 +21,8 @@ export default class extends Component {
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
         styles={styles.sidebar}
+        sidebarClassName="sidebar-custome"
+        pullRight
       >
         <Navbar toggleSidebar={this.onSetSidebarOpen} />
       </Sidebar>
@@ -31,8 +33,7 @@ export default class extends Component {
 const styles = {
   sidebar: {
     sidebar: {
-      background: "white",
-      width: "210px"
+      background: "white"
     }
   }
 };
