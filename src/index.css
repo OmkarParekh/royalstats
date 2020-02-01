@@ -1,3 +1,9 @@
+*:focus,
+*:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .container {
   width: 95%;
   padding-right: 15px;
@@ -28,11 +34,4 @@
   .container {
     max-width: 95%;
   }
-}
-button:active,
-button:focus,
-.btn:focus,
-.btn:active {
-  outline: none !important;
-  box-shadow: none !important;
 }

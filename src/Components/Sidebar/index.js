@@ -29,7 +29,7 @@ export default class extends Component {
           <Navbar toggleSidebar={this.onSetSidebarOpen} />
           {this.props.children}
         </Sidebar>
-        <div className="clearfix">...</div>
+        <div className="clearfix" />
       </div>
     );
   }
