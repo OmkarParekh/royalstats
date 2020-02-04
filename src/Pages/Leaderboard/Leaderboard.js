@@ -81,17 +81,20 @@ export default class extends Component {
   render = () => {
     const { topPlayer, topClans } = this.state;
     return (
-      <div className="container mt-3">
+      <div className="container-lg mt-3">
         {/*  Top Players */}
-        <div class="card border-0 px-5 mb-5">
-          <div class="card-body">
+        <div className="card border-0 px-lg-5 mb-5">
+          <div className="card-body">
             <div className="row">
               <div className="col-6">
                 <div className="card-title lb-card_title px-3">Top Players</div>
               </div>
               <div className="col-6 text-right">
-                <select className="custom-select lb-card_select-box border-0 bg-light">
-                  <option selected>Country</option>
+                <select
+                  defaultValue="1"
+                  className="custom-select lb-card_select-box border-0 bg-light"
+                >
+                  <option value="1">Country</option>
                   {regions.map(region => (
                     <option key={uuidv4()} value={region.key}>
                       {region.name}
@@ -101,13 +104,22 @@ export default class extends Component {
               </div>
             </div>
             <hr className="m-0 my-2" />
-            <table class="table table-hover mt-3 lb-table">
+            <table className="table table-hover mt-3 lb-table">
               <tbody>
                 {topPlayer.map(({ name, trophies, league, clan }, i) => {
                   return (
-                    <tr>
-                      <td className="align-middle">#{i + 1}</td>
-                      <td className="align-middle">{name}</td>
+                    <tr key={uuidv4()}>
+                      <td className="align-middle d-none d-lg-table-cell">
+                        #{i + 1}
+                      </td>
+                      <td className="align-middle">
+                        <img
+                          src={Champion_League}
+                          alt="_trophy.png"
+                          className="lb-icon d-inline d-lg-none"
+                        />
+                        {name}
+                      </td>
                       <td className="align-middle">
                         <img
                           src={Trophy}
@@ -116,7 +128,7 @@ export default class extends Component {
                         />
                         {trophies}
                       </td>
-                      <td className="align-middle">
+                      <td className="align-middle  d-none d-lg-table-cell">
                         <img
                           src={Champion_League}
                           alt="_trophy.png"
@@ -124,7 +136,7 @@ export default class extends Component {
                         />
                         {league}
                       </td>
-                      <td className="align-middle">
+                      <td className="align-middle d-lg-table-cell d-none">
                         <img
                           src="https://cdn.statsroyale.com/images/badges/16000040.png"
                           alt="_trophy.png"
@@ -139,7 +151,7 @@ export default class extends Component {
             </table>
             <div className="text-right">
               <a href="/" className="btn lb-see_more_btn px-3">
-                See All <i class="fal fa-arrow-right ml-2"></i>
+                See All <i className="fal fa-arrow-right ml-2"></i>
               </a>
             </div>
           </div>
@@ -147,15 +159,18 @@ export default class extends Component {
 
         {/*  Top Clan */}
 
-        <div class="card border-0 px-5 mb-5">
-          <div class="card-body">
+        <div className="card border-0 px-5 mb-5">
+          <div className="card-body">
             <div className="row">
               <div className="col-6">
                 <div className="card-title lb-card_title px-3">Top Clans</div>
               </div>
               <div className="col-6 text-right">
-                <select className="custom-select lb-card_select-box border-0 bg-light">
-                  <option selected>Country</option>
+                <select
+                  defaultValue="1"
+                  className="custom-select lb-card_select-box border-0 bg-light"
+                >
+                  <option value="1">Country</option>
                   {regions.map(region => (
                     <option key={uuidv4()} value={region.key}>
                       {region.name}
@@ -165,12 +180,14 @@ export default class extends Component {
               </div>
             </div>
             <hr className="m-0 my-2" />
-            <table class="table table-hover mt-3 lb-table">
+            <table className="table table-hover mt-3 lb-table">
               <tbody>
                 {topClans.map(({ name, trophies, members, location }, i) => {
                   return (
-                    <tr>
-                      <td className="align-middle">#{i + 1}</td>
+                    <tr key={uuidv4()}>
+                      <td className="d-none d-lg-block align-middle">
+                        #{i + 1}
+                      </td>
                       <td className="align-middle">
                         <img
                           src="https://cdn.statsroyale.com/images/badges/16000040.png"
@@ -187,11 +204,12 @@ export default class extends Component {
                         />
                         {trophies}
                       </td>
-                      <td className="align-middle">
-                        {" "}
-                        <i class="fal fa-users mr-3"></i> {members}/50
+                      <td className="align-middl0e d-none d-lg-table-cell">
+                        <i className="fal fa-users mr-3"></i> {members}/50
                       </td>
-                      <td className="align-middle">{location}</td>
+                      <td className="align-middle d-none d-lg-inline ">
+                        {location}
+                      </td>
                     </tr>
                   );
                 })}
@@ -199,7 +217,7 @@ export default class extends Component {
             </table>
             <div className="text-right">
               <a href="/" className="btn lb-see_more_btn px-3">
-                See All <i class="fal fa-arrow-right ml-2"></i>
+                See All <i className="fal fa-arrow-right ml-2"></i>
               </a>
             </div>
           </div>
@@ -207,8 +225,8 @@ export default class extends Component {
 
         {/* Top War Clans */}
 
-        <div class="card border-0 px-5 mb-5">
-          <div class="card-body">
+        <div className="card border-0 px-5 mb-5">
+          <div className="card-body">
             <div className="row">
               <div className="col-6">
                 <div className="card-title lb-card_title px-3">
@@ -216,8 +234,11 @@ export default class extends Component {
                 </div>
               </div>
               <div className="col-6 text-right">
-                <select className="custom-select lb-card_select-box border-0 bg-light">
-                  <option selected>Country</option>
+                <select
+                  defaultValue="1"
+                  className="custom-select lb-card_select-box border-0 bg-light"
+                >
+                  <option value="1">Country</option>
                   {regions.map(region => (
                     <option key={uuidv4()} value={region.key}>
                       {region.name}
@@ -227,12 +248,14 @@ export default class extends Component {
               </div>
             </div>
             <hr className="m-0 my-2" />
-            <table class="table table-hover mt-3 lb-table">
+            <table className="table table-hover mt-3 lb-table">
               <tbody>
                 {topClans.map(({ name, trophies, members, location }, i) => {
                   return (
-                    <tr>
-                      <td className="align-middle">#{i + 1}</td>
+                    <tr key={uuidv4()}>
+                      <td className="align-middle d-none d-lg-inline">
+                        #{i + 1}
+                      </td>
                       <td className="align-middle">
                         <img
                           src="https://cdn.statsroyale.com/images/badges/16000040.png"
@@ -249,11 +272,12 @@ export default class extends Component {
                         />
                         {trophies}
                       </td>
-                      <td className="align-middle">
-                        {" "}
-                        <i class="fal fa-users mr-3"></i> {members}/50
+                      <td className="align-middle d-none d-lg-table-cell">
+                        <i className="fal fa-users mr-3"></i> {members}/50
                       </td>
-                      <td className="align-middle">{location}</td>
+                      <td className="align-middle d-none d-lg-table-cell">
+                        {location}
+                      </td>
                     </tr>
                   );
                 })}
@@ -261,7 +285,7 @@ export default class extends Component {
             </table>
             <div className="text-right">
               <a href="/" className="btn lb-see_more_btn px-3">
-                See All <i class="fal fa-arrow-right ml-2"></i>
+                See All <i className="fal fa-arrow-right ml-2"></i>
               </a>
             </div>
           </div>

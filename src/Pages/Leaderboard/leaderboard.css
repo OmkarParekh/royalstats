@@ -3,7 +3,8 @@
 }
 
 .lb-card_select-box {
-  width: 30%;
+  width: auto;
+  max-width: 150px;
 }
 
 .lb-rank {
