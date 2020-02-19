@@ -1,0 +1,40 @@
+.card-holder{
+    margin: 50px;
+}
+.card-image{
+    width: 14vh;
+    height: 18vh;
+    position: relative;
+}
+.card-level{
+    position: absolute;
+    bottom: 15vh;
+    left: 12vh;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.card-elixer{
+        background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../../assest/img/elixer.png);
+    width: 1.6rem;
+    height: 1.6rem;
+    color: #fff;
+    font-size: 1rem;
+    padding: .1rem .2rem .2rem 0;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 0 1px 3px #000;
+    font-weight: 700;
+    position: absolute;
+    top: 7vh;
+    left: 9vh;
+    cursor: pointer;
+}
+.image-title{
+    font-size: 20px;
+    line-height: 30px;
+    cursor: pointer;
+    font-family: fantasy;
+}
