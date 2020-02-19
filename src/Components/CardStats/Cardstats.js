@@ -16,12 +16,26 @@ export default class Cardstats extends Component {
     }
 
 
+    // handleData = (obj) => {
+    //     var cardData = [];
+    //     cardData = obj;
+    // }
+
+
 
 
     render() {
 
     const cards = [this.props.cards];
-      
+    // const obj = JSON.stringify(cards)
+    // console.log(obj)
+    // var cardData = [];
+    // const data = (obj) => {
+    //     cardData = obj;
+    //    return (cardData[1].name)
+    // }
+
+    // console.log(this.handleData(obj))
 
    
    
@@ -64,38 +78,55 @@ export default class Cardstats extends Component {
                                 
                                 
                                 
-                                      <div className="col-lg-12 d-flex">
+                                      {/* <div className="col-lg-12 d-flex"> */}
 
 
                                                        
-                          {/* {
-                             cards.map((item) => {
-                                 var data = Object.assign({}, item);
-                                 console.log(typeof(data))
-                                 return(
-                                    <div className="col-lg-12 d-flex">
+                          {
+                             cards.map((item,index) => {
+                                
+                                //  console.log('item', item)
+                                 var data = [Object.assign({}, item)];
 
-                                        <Carditem 
-                                                icon={data.icon}
-                                                level = {data.level}
-                                                name={data.name}
-                                                elixer={data.elixir}
-                                                 />
-                                        </div>
-                                 );
+                                 //  console.log(data[0])
+                                 
+                                 data.map((item,index) => {
+                                    var cardData = Object.assign({}, item[index])
+
+                                    console.log(cardData.icon)
+                                    // var {icon,name,level,elixir} = [card.icon,card.level,card.name,card.elixir]
+
+                                    //  var cardData = Object.assign({}, item[index])
+                                    //  console.log(cardData.name)
+                                    //  index+=1;
+                                    //    return(
+                                    //      <div className="col-lg-12 d-flex">
+                                    //         <Carditem 
+                                    //             icon={cardData.icon}
+                                    //             level = {cardData.level}
+                                    //             name={cardData.name}
+                                    //             elixer={cardData.elixir}
+                                    //              />
+                                    //     </div>
+                                    //     );
+                                    index+=1;
+                                 })
+                                 index+=1;
+                                
+                               
                              }) 
-                          } */}
+                          }
 
 
-<br></br>
+{/* <br></br>
                                               <Carditem 
                                                 icon={cardImg}
                                                 level = "13"
                                                 name="Goblin"
                                                 elixer="3 "
-                                                 /> 
+                                                 />  */}
                                                
-                                               </div>
+                                               {/* </div> */}
                                              
                                              
                                             
