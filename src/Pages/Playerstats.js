@@ -9,156 +9,252 @@ import StatsContainer from '../Components/StatsHolder/StatsContainer';
 import Cardstats from '../Components/CardStats/Cardstats';
 import Upcomingchest from '../Components/Upcoming Chest/Upcomingchest';
 
+import Axios from 'axios';
+import League from '../Components/leaguecompt/League';
+
 
 export default class Playerstats extends Component {
 
-    constructor(){
+    constructor() {
         super()
-        this.state={
-            stats : false,
-            card : false,
-            chest : true,
-            battle : false,
+        this.state = {
+            stats: false,
+            card: true,
+            chest: false,
+            battle: false,
+            data: [],
+            clan: [],
+            stat: [],
+            bestSeason : null,
+            currentSeason : null,
+            previousSeason : null,
+            cards: null,
+            deckLink: null,
+            favoriteCard : null,
+            currentDeck: null
         }
     }
 
+
+        
+
+
+    componentDidMount() {
+        Axios.get('/player/8L9L9GL')
+            .then(res => res)
+            .then(data => {
+                this.setState({ data: data.data[0] ,
+
+                clan : [data.data[0].clan.badge.category,
+                data.data[0].clan.badge.image,
+                data.data[0].clan.name],
+
+                stat : [data.data[0].stats,
+                data.data[0].games],
+
+                bestSeason :  data.data[0].leagueStatistics.bestSeason,
+               currentSeason: data.data[0].leagueStatistics.currentSeason,
+               previousSeason: data.data[0].leagueStatistics.previousSeason,
+
+
+                    cards: data.data[0].cards,
+                    deckLink: data.data[0].deckLink,
+                    favoriteCard :data.data[0].stats.favoriteCard, 
+                   currentDeck: data.data[0].currentDeck
+            })
+        })
+    }
+
+
+    // async componentDidMount(){
+    //     const Response = await axios.get('/player/8L9L9GL');
+    //     const data = Response;
+    //     this.setState({data : data.data})
+    // }
+
+    // dataSet = ()=> {
+    //     const data = this.state.data;
+    //     const clan = this.state.data.clan;
+    //     this.setState({clan})
+    // }
+
+
     render() {
+        const { data,clan } = this.state;
+        // const clan = this.dataSet();
         return (
             <div>
+
                 <div className="container player-stats">
                     <div className="row">
                         <div className="col-3 arena-info">
-                                <img src={arenaImg} className="arena-info-img" alt="arena" />
-                                <span className="arena-info-name">Legendary</span>
+                            <img src={arenaImg} className="arena-info-img" alt="arena" />
+                            <span className="arena-info-name">Legendary</span>
                         </div>
                         <div className="col-8 player-data-cont">
-                                <div className="player-data mt-3">
-                                    <img src={playerBadge} alt="playerBadge" className="player-data-icon mr-1" />
-                                    <span className="player-data-name">
-                                        Sniperdevil
-                                        <h6 className="text-muted player-data-tag">
-                                         #8L9L9GL
-                                         </h6>
-                                     </span>
-                                </div>
-                                <div className="player-options">
-                                    <ul className="player-option-header">
-                                        <li className="player-option-items">
-                                            <span className="item-name">
-                                                Throphies
+
+
+                            <div className="player-data mt-3">
+                                <img src={playerBadge} alt="playerBadge" className="player-data-icon mr-1" />
+                                <span className="player-data-name">
+                                    {data.name}
+                                    
+                                    <h6 className="text-muted player-data-tag">
+                                        {`#${data.tag}`}
+                                    </h6>
+                                </span>
+                            </div>
+
+
+
+
+
+
+
+
+                            <div className="player-options">
+                                <ul className="player-option-header">
+                                    <li className="player-option-items">
+                                        <span className="item-name">
+                                            Throphies
                                             </span>
-                                            <span className="item-divider">
-                                                ....................................................................................
+                                        <span className="item-divider">
+                                            ....................................................................................
                                             </span>
-                                            <div className="item-data">
-                                                <img src={Trophy}
+                                        <div className="item-data">
+                                            <img src={Trophy}
                                                 alt="Trophy-icon"
                                                 className="item-icon"
-                                                />
-                                                <span className="item-value">
-                                                    30000
-                                                </span>
-                                            </div>
-                                        </li>
+                                            />
+                                            <span className="item-value">
+                                                {data.trophies}
+                                            </span>
+                                        </div>
+                                    </li>
 
 
 
-                                        <li className="player-option-items">
-                                            <span className="item-name">
+
+
+
+                                    <li className="player-option-items">
+                                    <span className="item-name">
                                             Clan
                                             </span>
                                             <span className="item-divider">
                                                 ....................................................................................
                                             </span>
                                             <div className="item-data">
-                                                <img src={Clanicon}
-                                                alt="CLan-icon"
+                                                <img src={clan[1]}
+                                                alt={clan[0]}
                                                 className="item-icon"
                                                 />
                                                 <span className="item-value">
-                                                    Dark Worriors
+                                                   {clan[2]}
                                                 </span>
                                             </div>
-                                        </li>
+                                    </li>
 
-                                    </ul>
-                                </div>
+                                </ul>
+                            </div>
 
-                                <div className="player-nav-option">
-                                    <ul className="nav-options">
-                                        <li className="nav-option-item">
-                                            <img
+
+
+
+
+
+
+                            <div className="player-nav-option">
+                                <ul className="nav-options">
+                                    <li className="nav-option-item">
+                                        <img
                                             src={option1}
                                             alt="option-icon"
                                             className="option-icon"
-                                            />
-                                            <span className="option-name align-center">
-                                                Player Stats
+                                        />
+                                        <span className="option-name align-center">
+                                            Player Stats
                                             </span>
-                                        </li>
+                                    </li>
 
-                                        <li className="nav-option-item">
-                                            <img
+                                    <li className="nav-option-item">
+                                        <img
                                             src={option1}
                                             alt="option-icon"
                                             className="option-icon"
-                                            />
-                                            <span className="option-name align-center">
-                                                Player Stats
+                                        />
+                                        <span className="option-name align-center">
+                                            Player Stats
                                             </span>
-                                        </li>
+                                    </li>
 
-                                        <li className="nav-option-item">
-                                            <img
+                                    <li className="nav-option-item">
+                                        <img
                                             src={option1}
                                             alt="option-icon"
                                             className="option-icon"
-                                            />
-                                            <span className="option-name align-center">
-                                                Player Stats
+                                        />
+                                        <span className="option-name align-center">
+                                            Player Stats
                                             </span>
-                                        </li>
+                                    </li>
 
-                                        <li className="nav-option-item">
-                                            <img
+                                    <li className="nav-option-item">
+                                        <img
                                             src={option1}
                                             alt="option-icon"
                                             className="option-icon"
-                                            />
-                                            <span className="option-name align-center">
-                                                Player Stats
+                                        />
+                                        <span className="option-name align-center">
+                                            Player Stats
                                             </span>
-                                        </li>
+                                    </li>
 
-                                        <li className="nav-option-item">
-                                            <img
+                                    <li className="nav-option-item">
+                                        <img
                                             src={option1}
                                             alt="option-icon"
                                             className="option-icon"
-                                            />
-                                            <span className="option-name align-center">
-                                                Player Stats
+                                        />
+                                        <span className="option-name align-center">
+                                            Player Stats
                                             </span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div>
                     {
                         this.state.stats &&
-                        <StatsContainer />
+                        <div>
+                        <StatsContainer 
+                        throphies = {this.state.data.trophies}
+                        stats={this.state.stat[0]}
+                        games = {this.state.stat[1]}
+                        />
+                        <League 
+                        bestSeason={this.state.bestSeason}
+                        currentSeason = {this.state.currentSeason}
+                        previousSeason= { this.state.previousSeason }
+                        />
+                        </div>
                     }
-                     {
+                    {
                         this.state.card &&
-                        <Cardstats />
+                        <Cardstats 
+                        cards = {this.state.cards}
+                        deckLink ={ this.state.deckLink }
+                        favCard = {this.state.favoriteCard}
+                        currentDeck = {this.state.currentDeck}
+                        />
                     }
-                     {
+                    {
                         this.state.chest &&
                         <Upcomingchest />
                     }
-                    
+
                 </div>
             </div>
         )

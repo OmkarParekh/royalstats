@@ -5,14 +5,37 @@ import cardImg from '../../assest/img/card-i.png';
 import Carditem from './Carditem';
 
 export default class Cardstats extends Component {
+
+
+    constructor(props){
+        super(props);
+        this.state={
+            cards: [],
+            isLoad: "false"
+        }
+    }
+
+
+
+
     render() {
+
+    const cards = [this.props.cards];
+      
+
+   
+   
+        
+    
+
         return (
             <div>
+              {/* {handleProps} */}
                 <div className="container player-stats">
                     <div className="row">
                                         <div className="col-12 p-2">
                                             <div className="container-header d-flex">
-                                                        <div className="header-title">
+                                                        <div className="headertitle">
                                                             <img
                                                                 src={Card}
                                                                 alt="Cards-icon"
@@ -35,12 +58,47 @@ export default class Cardstats extends Component {
 
                                         <span className="divider"></span>
 
-                                        <div className="col-lg-12 d-flex">
-                                            <Carditem 
-                                                src={cardImg}
-                                                title="Goblin"
-                                                level="12"
-                                            />
+                                      
+                                         
+
+                                
+                                
+                                
+                                      <div className="col-lg-12 d-flex">
+
+
+                                                       
+                          {/* {
+                             cards.map((item) => {
+                                 var data = Object.assign({}, item);
+                                 console.log(typeof(data))
+                                 return(
+                                    <div className="col-lg-12 d-flex">
+
+                                        <Carditem 
+                                                icon={data.icon}
+                                                level = {data.level}
+                                                name={data.name}
+                                                elixer={data.elixir}
+                                                 />
+                                        </div>
+                                 );
+                             }) 
+                          } */}
+
+
+<br></br>
+                                              <Carditem 
+                                                icon={cardImg}
+                                                level = "13"
+                                                name="Goblin"
+                                                elixer="3 "
+                                                 /> 
+                                               
+                                               </div>
+                                             
+                                             
+                                            
 
                                             {/* <div className="card-holder d-block">
                                                 <img 
@@ -51,7 +109,7 @@ export default class Cardstats extends Component {
                                                 <span className="d-block text-center image-title">Goblin</span>
                                             </div> */}
                                             
-                                        </div>
+                                     
 
 
                     </div>

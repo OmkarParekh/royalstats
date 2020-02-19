@@ -1,6 +1,6 @@
 
-.header-title{
-    margin-left: 60px;
+.headertitle{
+    margin-left: 100px;
 }
 .header-icon{
     width: 50px;
@@ -16,7 +16,8 @@
     cursor: pointer;
     margin: auto 10px;
 }
-.header-title{
+.headertitle{
+    margin-left: 100px;
     flex-grow: 4;
 }
 .cardCategory{

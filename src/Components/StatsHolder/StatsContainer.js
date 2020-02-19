@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react'
 import './StatsContainer.css'
 
 import Trophy from '../../assest/img/Trophy.png';
@@ -8,9 +8,34 @@ import tournament from '../../assest/img/tournament.png';
 import badge from '../../assest/img/legendaryPoints.png';
 
 
-export default function StatsCont() {
-    return (
-        <div>
+
+
+export default class StatsContainer extends Component {
+
+
+    constructor(props){
+            super(props);
+
+            this.state = {
+                data : []
+            }
+
+            
+    }
+
+
+
+    render() {  
+        const data = this.props;
+        const stats = this.props.stats;
+        const games = this.props.games;
+        
+        const statsData = Object.assign({}, stats);
+        const gameData = Object.assign({}, games);
+        
+
+        return (
+                <div>
             <div className="container data-container">
                 <div className="row">
                     <div className="col-6 data-holder">
@@ -23,15 +48,24 @@ export default function StatsCont() {
                                         Trophies
                                     </span>
                         </div>
-                        <div className="stats-data">
-                            <span className="statstext">maxTrophies</span>
-                            <span className="stat-divider">..............................</span>
-                            <span className="statsData">6407</span>
-                        </div>
+                        
+                    
+                          
+                                <div className="stats-data">
+                                <span className="statstext">maxTrophies</span>
+                                <span className="stat-divider">..............................</span>
+                                <span className="statsData">
+                                    {statsData.maxTrophies}
+                                </span>
+                                </div>
+                          
+                    
                         <div className="stats-data">
                             <span className="statstext">Trophies</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">6002</span>
+                            <span className="statsData">
+                                {data.throphies}
+                            </span>
                         </div>
 
 
@@ -47,31 +81,41 @@ export default function StatsCont() {
                         <div className="stats-data">
                             <span className="statstext">Total Wins</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">6565458</span>
+                            <span className="statsData">
+                                {gameData.wins}
+                            </span>
                         </div>
 
                         <div className="stats-data">
                             <span className="statstext">Total Looses</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">000000</span>
+                            <span className="statsData">
+                                {gameData.losses}
+                            </span>
                         </div>
 
                         <div className="stats-data">
                             <span className="statstext">threeCrownWins</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">6002</span>
+                            <span className="statsData">
+                                {statsData.threeCrownWins}
+                            </span>
                         </div>
 
                         <div className="stats-data">
                             <span className="statstext">challengeMaxWins</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">18</span>
+                            <span className="statsData">
+                                {statsData.challengeMaxWins}
+                            </span>
                         </div>
 
                         <div className="stats-data">
                             <span className="statstext">Total Draws</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">76766</span>
+                            <span className="statsData">
+                                {gameData.draws}
+                            </span>
                         </div>
                     {/* end of first col */}
                     </div>
@@ -85,14 +129,25 @@ export default function StatsCont() {
                                     </span>
                         </div>
                         <div className="stats-data">
-                            <span className="statstext">maxTrophies</span>
+                            <span className="statstext">warDayWins</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">6407</span>
+                            <span className="statsData">
+                                {gameData.warDayWins}
+                            </span>
                         </div>
                         <div className="stats-data">
-                            <span className="statstext">Trophies</span>
+                            <span className="statstext">clanCardsCollected</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">6002</span>
+                            <span className="statsData">
+                                {statsData.clanCardsCollected}
+                            </span>
+                        </div>
+                        <div className="stats-data">
+                            <span className="statstext">totalDonations</span>
+                            <span className="stat-divider">..............................</span>
+                            <span className="statsData">
+                                {statsData.totalDonations}
+                            </span>
                         </div>
 
 
@@ -102,7 +157,7 @@ export default function StatsCont() {
                             
                         <span className="align-middle headerText">
                                         <img src={tournament} className="align-middle stat-icon" alt="" />
-                                        Wins Stats
+                                        Turnamets  And Challeges
                                     </span>
                             
                             
@@ -111,89 +166,52 @@ export default function StatsCont() {
                         </div>
 
                         <div className="stats-data">
-                            <span className="statstext">Total Wins</span>
+                            <span className="statstext">tournamentCardsWon</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">6565458</span>
-                        </div>
-
-                        <div className="stats-data">
-                            <span className="statstext">Total Looses</span>
-                            <span className="stat-divider">..............................</span>
-                            <span className="statsData">000000</span>
-                        </div>
-
-                        <div className="stats-data">
-                            <span className="statstext">threeCrownWins</span>
-                            <span className="stat-divider">..............................</span>
-                            <span className="statsData">6002</span>
+                            <span className="statsData">
+                                {statsData.tournamentCardsWon}
+                            </span>
                         </div>
 
                         <div className="stats-data">
                             <span className="statstext">challengeMaxWins</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">18</span>
+                            <span className="statsData">
+                                {statsData.challengeMaxWins}
+                            </span>
                         </div>
 
                         <div className="stats-data">
-                            <span className="statstext">Total Draws</span>
+                            <span className="statstext">challengeCardsWon</span>
                             <span className="stat-divider">..............................</span>
-                            <span className="statsData">76766</span>
+                            <span className="statsData">
+                                {statsData.challengeCardsWon}
+                            </span>
+                        </div>
+
+                        <div className="stats-data">
+                            <span className="statstext">tournamentGames</span>
+                            <span className="stat-divider">..............................</span>
+                            <span className="statsData">
+                                {gameData.tournamentGames}
+                            </span>
+                        </div>
+
+                        <div className="stats-data">
+                            <span className="statstext">clanCardsCollected</span>
+                            <span className="stat-divider">..............................</span>
+                            <span className="statsData">
+                                {statsData.clanCardsCollected}
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-                <div className="container badge-container">
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="d-flex stats-header">
-                                <img src={badge}  alt="Badge-icon" width="50" height="55" />
-                                <span className="header-text">LeagueStats</span>
-                            </div>
-                        <div className="offset-2 d-flex">
-                            <div className="outer-box">
-                                    <div className="inner-box text-center">
-                                        <span className="d-block mt-2">Previous Season</span>
-                                        <img src={badge} className="d-block" alt="Badge-icon" width="50" height="55" />
-                                    </div>
-                                    <div className="conternt-box d-flex mt-3 text-center">
-                                    <span className="align-middle text-monospace">
-                                        <img src={Trophy} className="align-middle icon-s" alt="" />
-                                        5555
-                                    </span>
-                                    </div>
-                            </div>
-                            <div className="outer-box">
-                                    <div className="inner-box text-center">
-                                        <span className="d-block mt-2">Currunt Season</span>
-                                        <img src={badge} className="d-block" alt="Badge-icon" width="50" height="55" />
-                                    </div>
-                                    <div className="conternt-box d-flex mt-3 text-center">
-                                    <span className="align-middle text-monospace">
-                                        <img src={Trophy} className="align-middle icon-s" alt="" />
-                                        5555
-                                    </span>
-                                    </div>
-                            </div>
-                            <div className="outer-box">
-                                    <div className="inner-box text-center">
-                                        <span className="d-block mt-2">Best Season</span>
-                                        <img src={badge} className="d-block" alt="Badge-icon" width="50" height="55" />
-                                    </div>
-                                    <div className="conternt-box d-flex mt-3 text-center">
-                                    <span className="align-middle text-monospace">
-                                        <img src={Trophy} className="align-middle icon-s" alt="" />
-                                        5555
-                                    </span>
-                                    </div>
-                            </div>
-                           
-                            </div>
-                               
-                        </div>
-                    </div>
-                </div>
+                
         </div>
-    )
+        );
+    }
 }
+
 
 
