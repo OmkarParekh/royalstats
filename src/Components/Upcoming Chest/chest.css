@@ -16,8 +16,9 @@
     height: auto;
 }
 .chest-icon{
-    width: 200px;
-    height: 200px;
+    margin: auto;
+    width: 150px;
+    height: 150px;
 }
 .chest-duration{    
     position: relative;
@@ -38,7 +39,6 @@
     line-height: 30px;
     color: #AE9134;
     cursor: pointer;
-    margin: auto 10px;
 }
 .chest-title{
     font-style: normal;
@@ -48,4 +48,11 @@
     color: #AE9134;
     cursor: pointer;
     margin: auto 10px;
+}
+.chestdata{
+    display: flex;
+    flex-wrap: wrap;
+}
+.link{
+    display: flex;
 }

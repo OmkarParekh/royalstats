@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import '../css/player.css';
-import arenaImg from '../assest/img/arena.png'
 import playerBadge from '../assest/img/legendaryPoints.png';
+import arenaImg from '../assest/img/arena.png'
 import Trophy from '../assest/img/Trophy.png';
 import Clanicon from '../assest/img/Flame_01.png';
 import option1 from '../assest/img/crl.png';
+import option2 from '../assest/img/cards.png';
+import option3 from '../assest/img/battle.png';
+import option4 from '../assest/img/chest-background.png';
+
 import StatsContainer from '../Components/StatsHolder/StatsContainer';
 import Cardstats from '../Components/CardStats/Cardstats';
 import Upcomingchest from '../Components/Upcoming Chest/Upcomingchest';
 
 import Axios from 'axios';
 import League from '../Components/leaguecompt/League';
+import ArenaData from '../Components/StatsHolder/ArenaData';
 
 
 export default class Playerstats extends Component {
@@ -18,10 +23,12 @@ export default class Playerstats extends Component {
     constructor() {
         super()
         this.state = {
-            stats: false,
-            card: true,
-            chest: false,
-            battle: false,
+            playerTag : '8L9L9GL',
+
+            activeTab:'playerStats',
+
+
+
             data: [],
             clan: [],
             stat: [],
@@ -40,7 +47,7 @@ export default class Playerstats extends Component {
 
 
     componentDidMount() {
-        Axios.get('/player/8L9L9GL')
+        Axios.get(`/player/${this.state.playerTag}`)
             .then(res => res)
             .then(data => {
                 this.setState({ data: data.data[0] ,
@@ -62,8 +69,10 @@ export default class Playerstats extends Component {
                     favoriteCard :data.data[0].stats.favoriteCard, 
                    currentDeck: data.data[0].currentDeck
             })
-        })
+        }).catch(err => console.log(err))
     }
+
+
 
 
     // async componentDidMount(){
@@ -81,16 +90,22 @@ export default class Playerstats extends Component {
 
     render() {
         const { data,clan } = this.state;
-        // const clan = this.dataSet();
+       console.log(data.arena)
         return (
             <div>
 
                 <div className="container player-stats">
                     <div className="row">
                         <div className="col-3 arena-info">
-                            <img src={arenaImg} className="arena-info-img" alt="arena" />
-                            <span className="arena-info-name">Legendary</span>
+                            {/* <img src={arenaImg} className="arena-info-img" alt="arena" />
+                            <span className="arena-info-name">Legendary</span> */}
+                            <ArenaData 
+                            trophies = {data.trophies}
+                            />
                         </div>
+
+
+
                         <div className="col-8 player-data-cont">
 
 
@@ -172,53 +187,51 @@ export default class Playerstats extends Component {
                                             alt="option-icon"
                                             className="option-icon"
                                         />
-                                        <span className="option-name align-center">
+                                        <span className="option-name align-center btn"
+                                            onClick={() => this.setState({activeTab : "playerStats"})}
+                                        >
                                             Player Stats
                                             </span>
                                     </li>
 
                                     <li className="nav-option-item">
                                         <img
-                                            src={option1}
+                                            src={option2}
                                             alt="option-icon"
                                             className="option-icon"
                                         />
-                                        <span className="option-name align-center">
-                                            Player Stats
+                                        <span className="option-name align-center btn"
+                                            onClick={() => this.setState({activeTab : "cards"})}
+                                        >
+                                            Cards Stats
                                             </span>
                                     </li>
 
                                     <li className="nav-option-item">
                                         <img
-                                            src={option1}
+                                            src={option4}
                                             alt="option-icon"
                                             className="option-icon"
                                         />
-                                        <span className="option-name align-center">
-                                            Player Stats
+                                        <span className="option-name align-center btn"
+                                            onClick={() => this.setState({activeTab : "upcomingChest"})}
+                                        >
+                                            UpcomingChest
                                             </span>
                                     </li>
 
                                     <li className="nav-option-item">
                                         <img
-                                            src={option1}
+                                            src={option3}
                                             alt="option-icon"
                                             className="option-icon"
                                         />
-                                        <span className="option-name align-center">
-                                            Player Stats
-                                            </span>
-                                    </li>
-
-                                    <li className="nav-option-item">
-                                        <img
-                                            src={option1}
-                                            alt="option-icon"
-                                            className="option-icon"
-                                        />
-                                        <span className="option-name align-center">
-                                            Player Stats
-                                            </span>
+                                        <span 
+                                        className="option-name align-center btn"
+                                            onClick={() => this.setState({activeTab : "battle"})}
+                                        >
+                                            Battle Stats
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
@@ -226,9 +239,11 @@ export default class Playerstats extends Component {
                     </div>
                 </div>
                 <div>
-                    {
-                        this.state.stats &&
-                        <div>
+
+
+                {
+                    this.state.activeTab === "playerStats" &&
+                    <div>
                         <StatsContainer 
                         throphies = {this.state.data.trophies}
                         stats={this.state.stat[0]}
@@ -239,20 +254,25 @@ export default class Playerstats extends Component {
                         currentSeason = {this.state.currentSeason}
                         previousSeason= { this.state.previousSeason }
                         />
-                        </div>
-                    }
-                    {
-                        this.state.card &&
-                        <Cardstats 
+                    </div>
+                }
+    
+
+                {
+                    this.state.activeTab === "cards" &&
+                    <Cardstats 
                         cards = {this.state.cards}
                         deckLink ={ this.state.deckLink }
                         favCard = {this.state.favoriteCard}
                         currentDeck = {this.state.currentDeck}
                         />
-                    }
+                }
+
                     {
-                        this.state.chest &&
-                        <Upcomingchest />
+                        this.state.activeTab === "upcomingChest" &&
+                        <Upcomingchest 
+                        playerTag={this.state.playerTag}
+                        />
                     }
 
                 </div>

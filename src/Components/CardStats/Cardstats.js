@@ -1,147 +1,125 @@
 import React, { Component } from 'react';
 import Card from '../../assest/img/cards.png'
 import './Cardstats.css';
-import cardImg from '../../assest/img/card-i.png';
 import Carditem from './Carditem';
+import arraySort from 'array-sort';
+
+
 
 export default class Cardstats extends Component {
-
-
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            cards: [],
+        this.state = {
+            activeOption: "All Cards",
             isLoad: "false"
         }
     }
-
-
-    // handleData = (obj) => {
-    //     var cardData = [];
-    //     cardData = obj;
-    // }
-
-
-
-
     render() {
-
-    const cards = [this.props.cards];
-    // const obj = JSON.stringify(cards)
-    // console.log(obj)
-    // var cardData = [];
-    // const data = (obj) => {
-    //     cardData = obj;
-    //    return (cardData[1].name)
-    // }
-
-    // console.log(this.handleData(obj))
-
-   
-   
-        
-    
-
+        const { cards, currentDeck } = this.props;
+        const obj = Object.assign({}, cards);
         return (
             <div>
-              {/* {handleProps} */}
                 <div className="container player-stats">
                     <div className="row">
-                                        <div className="col-12 p-2">
-                                            <div className="container-header d-flex">
-                                                        <div className="headertitle">
-                                                            <img
-                                                                src={Card}
-                                                                alt="Cards-icon"
-                                                                className="header-icon"
-                                                            />
-                                                            <span className="title-name">Cards Stats</span>
-                                                        </div>
-                                                        <div class="dropdown cardCategory" >
-                                                            <span class="dropdown-toggle category-text" data-toggle="dropdown">All Cards</span>
-                                                                <div class="dropdown-menu ml-1">
-                                                                    <span class="dropdown-item text-center">All Cards</span>
-                                                                    <span class="dropdown-item text-center">By Elixer</span>
-                                                                    <span class="dropdown-item text-center">By Rearity</span>
-                                                                    <hr/>
-                                                                    <span class="dropdown-item text-center">Deck</span>
-                                                                </div>
-                                                        </div>
-                                            </div>
-                                        </div>
+                        <div className="col-12 p-2">
+                            <div className="container-header d-flex">
+                                <div className="headertitle">
+                                    <img
+                                        src={Card}
+                                        alt="Cards-icon"
+                                        className="header-icon"
+                                    />
+                                    <span className="title-name">Cards Stats</span>
+                                </div>
+                                <div class="dropdown cardCategory" >
+                                    <span class="dropdown-toggle category-text" data-toggle="dropdown">
+                                        {this.state.activeOption}
+                                    </span>
+                                    <div class="dropdown-menu ml-1">
+                                        <span class="dropdown-item text-center btn"
+                                            onClick={() => this.setState({ activeOption: "All Cards" })}
+                                        >
+                                            All Cards</span>
+                                        <span class="dropdown-item text-center btn"
+                                            onClick={() => this.setState({ activeOption: "By Elixir" })}
+                                        >
+                                            By Elixer</span>
+                                        <span class="dropdown-item text-center btn"
+                                            onClick={() => this.setState({ activeOption: "By Rearity" })}
+                                        >
+                                            By Rearity</span>
+                                        <hr />
+                                        <span class="dropdown-item text-center btn"
+                                            onClick={() => this.setState({ activeOption: "deck" })}
+                                        >
+                                            Deck</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <span className="divider"></span>
+                        <span className="divider"></span>
 
-                                      
-                                         
-
-                                
-                                
-                                
-                                      {/* <div className="col-lg-12 d-flex"> */}
-
-
-                                                       
-                          {
-                             cards.map((item,index) => {
-                                
-                                //  console.log('item', item)
-                                 var data = [Object.assign({}, item)];
-
-                                 //  console.log(data[0])
-                                 
-                                 data.map((item,index) => {
-                                    var cardData = Object.assign({}, item[index])
-
-                                    console.log(cardData.icon)
-                                    // var {icon,name,level,elixir} = [card.icon,card.level,card.name,card.elixir]
-
-                                    //  var cardData = Object.assign({}, item[index])
-                                    //  console.log(cardData.name)
-                                    //  index+=1;
-                                    //    return(
-                                    //      <div className="col-lg-12 d-flex">
-                                    //         <Carditem 
-                                    //             icon={cardData.icon}
-                                    //             level = {cardData.level}
-                                    //             name={cardData.name}
-                                    //             elixer={cardData.elixir}
-                                    //              />
-                                    //     </div>
-                                    //     );
-                                    index+=1;
-                                 })
-                                 index+=1;
-                                
-                               
-                             }) 
-                          }
+                        <div className="col-lg-12 cardData d-flex align-content-start">
 
 
-{/* <br></br>
-                                              <Carditem 
-                                                icon={cardImg}
-                                                level = "13"
-                                                name="Goblin"
-                                                elixer="3 "
-                                                 />  */}
-                                               
-                                               {/* </div> */}
-                                             
-                                             
-                                            
+                            {
+                                this.state.activeOption === "All Cards" &&
+                                Object.values(obj).map((item) => {
+                                    return (
+                                        <Carditem
+                                            data={item}
+                                        />
+                                    )
+                                })
+                            }
 
-                                            {/* <div className="card-holder d-block">
-                                                <img 
-                                                    src={cardImg}
-                                                    alt="Card-img"
-                                                    className="card-image"
-                                                />
-                                                <span className="d-block text-center image-title">Goblin</span>
-                                            </div> */}
-                                            
-                                     
+                            {
+                                this.state.activeOption === "By Elixir" &&
+                                arraySort(cards, 'elixir').map((item) => {
+                                    return (
+                                        <Carditem
+                                            data={item}
+                                        />
+                                    );
+                                })
+                            }
+                            {
+                                this.state.activeOption === "By Rearity" &&
+                                arraySort(cards, 'rarity').map((item) => {
+                                    return (
+                                        <Carditem
+                                            data={item}
+                                        />
+                                    );
+                                })
+                            }
 
+
+
+
+                            {
+                                this.state.activeOption === "deck" &&
+                                <div>
+                                    <div className="deck-info d-flex">
+                                        {
+                                            Object.values(currentDeck).map((item) => {
+                                                return (
+                                                    <Carditem
+                                                        data={item}
+                                                    />
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                    <span className="align-center copy-text float-right">Copy Deck</span>
+                                </div>
+                            }
+
+
+
+
+                        </div>
 
                     </div>
                 </div>

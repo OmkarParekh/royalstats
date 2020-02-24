@@ -7,7 +7,6 @@
     height: auto;
 }
 .title-name{
-    /* font-family: monospace; */
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -39,4 +38,23 @@
     width: auto;
     height: 5px;
     color: black;
+}
+.cardData{
+    flex-wrap: wrap;
+    margin: 20px 50px;
+    
+}
+.deck-info{
+    margin: 30px auto;
+}
+.copy-text{
+    margin: 5px auto;
+    font-size: 20px;
+    line-height: 30px;
+    cursor: pointer;
+    font-family: fantasy;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: white;
 }
