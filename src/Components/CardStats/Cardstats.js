@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from '../../assest/img/cards.png'
 import './Cardstats.css';
 import Carditem from './Carditem';
-import arraySort from 'array-sort';
+import arraysort from 'array-sort'
 
 
 
@@ -76,7 +76,7 @@ export default class Cardstats extends Component {
 
                             {
                                 this.state.activeOption === "By Elixir" &&
-                                arraySort(cards, 'elixir').map((item) => {
+                                arraysort(cards, 'elixir').map((item) => {
                                     return (
                                         <Carditem
                                             data={item}
@@ -86,7 +86,7 @@ export default class Cardstats extends Component {
                             }
                             {
                                 this.state.activeOption === "By Rearity" &&
-                                arraySort(cards, 'rarity').map((item) => {
+                                arraysort(cards, 'rarity').map((item) => {
                                     return (
                                         <Carditem
                                             data={item}
@@ -115,10 +115,6 @@ export default class Cardstats extends Component {
                                     <span className="align-center copy-text float-right">Copy Deck</span>
                                 </div>
                             }
-
-
-
-
                         </div>
 
                     </div>

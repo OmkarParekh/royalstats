@@ -10,7 +10,7 @@ import option3 from '../assest/img/battle.png';
 import option4 from '../assest/img/chest-background.png';
 
 import StatsContainer from '../Components/StatsHolder/StatsContainer';
-import Cardstats from '../Components/CardStats/Cardstats';
+import Cardstats from '../Components/CardStats/Cardstats'
 import Upcomingchest from '../Components/Upcoming Chest/Upcomingchest';
 
 import Axios from 'axios';
