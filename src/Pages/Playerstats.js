@@ -136,7 +136,7 @@ export default class Playerstats extends Component {
                                             Throphies
                                             </span>
                                         <span className="item-divider">
-                                            ....................................................................................
+                                            ..............................................................
                                             </span>
                                         <div className="item-data">
                                             <img src={Trophy}
@@ -159,7 +159,7 @@ export default class Playerstats extends Component {
                                             Clan
                                             </span>
                                             <span className="item-divider">
-                                                ....................................................................................
+                                                ..............................................................
                                             </span>
                                             <div className="item-data">
                                                 <img src={clan[1]}

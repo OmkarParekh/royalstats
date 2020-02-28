@@ -53,7 +53,7 @@ export default class StatsContainer extends Component {
                           
                                 <div className="stats-data">
                                 <span className="statstext">maxTrophies</span>
-                                <span className="stat-divider">..............................</span>
+                                <span className="stat-divider">...................</span>
                                 <span className="statsData">
                                     {statsData.maxTrophies}
                                 </span>
@@ -62,7 +62,7 @@ export default class StatsContainer extends Component {
                     
                         <div className="stats-data">
                             <span className="statstext">Trophies</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {data.throphies}
                             </span>
@@ -80,7 +80,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">Total Wins</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {gameData.wins}
                             </span>
@@ -88,7 +88,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">Total Looses</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {gameData.losses}
                             </span>
@@ -96,7 +96,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">threeCrownWins</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {statsData.threeCrownWins}
                             </span>
@@ -104,7 +104,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">challengeMaxWins</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {statsData.challengeMaxWins}
                             </span>
@@ -112,7 +112,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">Total Draws</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {gameData.draws}
                             </span>
@@ -130,21 +130,21 @@ export default class StatsContainer extends Component {
                         </div>
                         <div className="stats-data">
                             <span className="statstext">warDayWins</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {gameData.warDayWins}
                             </span>
                         </div>
                         <div className="stats-data">
                             <span className="statstext">clanCardsCollected</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">....................</span>
                             <span className="statsData">
                                 {statsData.clanCardsCollected}
                             </span>
                         </div>
                         <div className="stats-data">
                             <span className="statstext">totalDonations</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {statsData.totalDonations}
                             </span>
@@ -157,7 +157,7 @@ export default class StatsContainer extends Component {
                             
                         <span className="align-middle headerText">
                                         <img src={tournament} className="align-middle stat-icon" alt="" />
-                                        Turnamets  And Challeges
+                                        Tournamets  And Challeges
                                     </span>
                             
                             
@@ -167,7 +167,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">tournamentCardsWon</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {statsData.tournamentCardsWon}
                             </span>
@@ -175,7 +175,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">challengeMaxWins</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {statsData.challengeMaxWins}
                             </span>
@@ -183,7 +183,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">challengeCardsWon</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {statsData.challengeCardsWon}
                             </span>
@@ -191,7 +191,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">tournamentGames</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {gameData.tournamentGames}
                             </span>
@@ -199,7 +199,7 @@ export default class StatsContainer extends Component {
 
                         <div className="stats-data">
                             <span className="statstext">clanCardsCollected</span>
-                            <span className="stat-divider">..............................</span>
+                            <span className="stat-divider">...................</span>
                             <span className="statsData">
                                 {statsData.clanCardsCollected}
                             </span>
