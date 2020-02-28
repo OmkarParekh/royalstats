@@ -15,7 +15,7 @@ export default class extends Component {
           <div className="row">
             <div className="col-6">
               <div className="d-inline-block">
-                <i className="fal fa-search align-middle"></i>
+                <i className="fa fa-search align-middle"></i>
               </div>
             </div>
             <div className="col-6">
@@ -24,7 +24,7 @@ export default class extends Component {
                 type="button"
                 onClick={this.props.toggleSidebar}
               >
-                <i className="fal fa-bars"></i>
+                <i className="fa fa-bars"></i>
               </button>
             </div>
           </div>
