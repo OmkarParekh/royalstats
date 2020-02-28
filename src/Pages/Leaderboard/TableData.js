@@ -33,7 +33,7 @@ export default class TableData extends Component {
                     <tbody>
 
                   {
-                    topPlayer.filter(({rank}) => rank <= 20).map(({name:playerName, rank, tag:playerTag, trophies, clan : {name:className, tag:clanTag, badge:{image}}}, index ) => {
+                    topPlayer.filter(({rank}) => rank <= 10).map(({name:playerName, rank, tag:playerTag, trophies, clan : {name:className, tag:clanTag, badge: {image}}}, index ) => {
                       return(
                         <tr key={rank} 
                         onClick={()=>{
@@ -60,6 +60,7 @@ export default class TableData extends Component {
                         </td>
                         <td className="align-middle">
 
+                        
                           {
                             image !== null &&
                             <img
