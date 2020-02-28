@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import '../css/player.css';
 import playerBadge from '../assest/img/legendaryPoints.png';
 import arenaImg from '../assest/img/arena.png'
@@ -164,8 +166,14 @@ export default class Playerstats extends Component {
                                                 alt={clan[0]}
                                                 className="item-icon"
                                                 />
+
+                                                
+
                                                 <span className="item-value">
-                                                   {clan[2]}
+
+                                                    <Link to="/clan">{clan[2]}</Link>
+
+                                                   
                                                 </span>
                                             </div>
                                     </li>

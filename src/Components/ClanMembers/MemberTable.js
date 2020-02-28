@@ -1,4 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default class MemberTable extends Component {
     render() {
@@ -10,7 +12,8 @@ export default class MemberTable extends Component {
                         {member.rank}
                     </th>
                     <td>
-                        {member.name}
+                        <Link to="/player">{member.name}</Link>
+                        
                     </td>
                     <td>
                         {member.role}
