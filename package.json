@@ -37,10 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-<<<<<<< HEAD
-  "proxy": "https://royalstats.herokuapp.com"
-=======
-  "proxy": "http://royalstats.herokuapp.com"
->>>>>>> player
+  }
 }
