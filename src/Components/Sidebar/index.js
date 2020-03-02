@@ -16,6 +16,7 @@ export default class extends Component {
 
   render() {
     return (
+      <div>
       <Sidebar
         sidebar={<SideNav />}
         open={this.state.sidebarOpen}
@@ -25,7 +26,10 @@ export default class extends Component {
         pullRight
       >
         <Navbar toggleSidebar={this.onSetSidebarOpen} />
+        {this.props.children}
       </Sidebar>
+      <div className="clearfix" />
+      </div>
     );
   }
 }
