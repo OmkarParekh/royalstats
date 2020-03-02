@@ -36,7 +36,7 @@ export default class StatsContainer extends Component {
 
         return (
                 <div>
-            <div className="container data-container">
+            <div className="container-fluid data-container">
                 <div className="row">
                     <div className="col-6 data-holder">
 

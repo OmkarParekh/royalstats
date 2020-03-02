@@ -41,7 +41,7 @@ export default class ClanStats extends Component {
         return (
             <div>
 
-                            <div className="container player-stats">
+                            <div className="container-fluid player-stats">
                             <div className="row p-4">
                                 <div className="col-4 d-block border-right border-danger ">
                                     <div className="d-flex">

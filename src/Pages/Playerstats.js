@@ -96,7 +96,7 @@ export default class Playerstats extends Component {
         return (
             <div>
 
-                <div className="container player-stats">
+                <div className="container-fluid player-stats">
                     <div className="row">
                         <div className="col-3 arena-info">
                             {/* <img src={arenaImg} className="arena-info-img" alt="arena" />
