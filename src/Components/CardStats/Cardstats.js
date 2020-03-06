@@ -19,10 +19,10 @@ export default class Cardstats extends Component {
         const obj = Object.assign({}, cards);
         return (
             <div>
-                <div className="container player-stats">
+                <div className="container-fluid player-stats">
                     <div className="row">
                         <div className="col-12 p-2">
-                            <div className="container-header d-flex">
+                            <div className="container-header mt-3 d-flex">
                                 <div className="headertitle">
                                     <img
                                         src={Card}
@@ -40,14 +40,14 @@ export default class Cardstats extends Component {
                                             onClick={() => this.setState({ activeOption: "All Cards" })}
                                         >
                                             All Cards</span>
-                                        <span class="dropdown-item text-center btn"
+                                        {/* <span class="dropdown-item text-center btn"
                                             onClick={() => this.setState({ activeOption: "By Elixir" })}
                                         >
                                             By Elixer</span>
                                         <span class="dropdown-item text-center btn"
                                             onClick={() => this.setState({ activeOption: "By Rearity" })}
                                         >
-                                            By Rearity</span>
+                                            By Rearity</span> */}
                                         <hr />
                                         <span class="dropdown-item text-center btn"
                                             onClick={() => this.setState({ activeOption: "deck" })}
@@ -60,7 +60,7 @@ export default class Cardstats extends Component {
 
                         <span className="divider"></span>
 
-                        <div className="col-lg-12 cardData d-flex align-content-start">
+                        <div className="col-lg-12 cardData align-content-start">
 
 
                             {
@@ -74,7 +74,7 @@ export default class Cardstats extends Component {
                                 })
                             }
 
-                            {
+                            {/* {
                                 this.state.activeOption === "By Elixir" &&
                                 arraysort(cards, 'elixir').map((item) => {
                                     return (
@@ -93,7 +93,7 @@ export default class Cardstats extends Component {
                                         />
                                     );
                                 })
-                            }
+                            } */}
 
 
 
@@ -101,7 +101,7 @@ export default class Cardstats extends Component {
                             {
                                 this.state.activeOption === "deck" &&
                                 <div>
-                                    <div className="deck-info d-flex">
+                                    <div className="deck-info">
                                         {
                                             Object.values(currentDeck).map((item) => {
                                                 return (
@@ -112,7 +112,7 @@ export default class Cardstats extends Component {
                                             })
                                         }
                                     </div>
-                                    <span className="align-center copy-text float-right">Copy Deck</span>
+                                    <span className="copy-text ">Copy Deck</span>
                                 </div>
                             }
                         </div>

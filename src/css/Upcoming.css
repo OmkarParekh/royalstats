@@ -1,0 +1,26 @@
+.page-header{
+    margin: 40px auto;
+}
+.page-icon{
+    width: 10vh;
+}
+.page-title{
+    font-size: 1.9rem;
+
+}
+.page-content{
+    margin: 30px auto;
+}
+.chest-data{
+    flex-wrap: wrap;
+}
+.chest-container{
+    margin: 10px 15px;
+}
+.chest-pos{
+    position: relative;
+    font-size: 2rem;
+    line-height: 30px;
+    bottom: 5rem;
+    color: whitesmoke;
+}

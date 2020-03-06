@@ -11,23 +11,23 @@ export default class ChestData extends Component {
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-epic.png"
                 },
                 {
-                    name : "epic",
+                    name : "Epic Chest",
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-draft.png"
                 },
                 {
-                    name : "giant",
+                    name : "Giant Chest",
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-giant.png"
                 },
                 {
-                    name : "legendary",
+                    name : "Legendary Chest",
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-legendary.png"
                 },
                 {
-                    name : "silver",
+                    name : "Silver Chest",
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-silver.png"
                 },
                 {
-                    name : "supermagical",
+                    name : "Mega Lightning Chest",
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-supermagical.png"
                 },
                 {
@@ -35,11 +35,11 @@ export default class ChestData extends Component {
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-wooden.png"
                 },
                 {
-                    name : "golden",
+                    name : "Golden Chest",
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-gold.png"
                 },
                 {
-                    name : "magical",
+                    name : "Magical Chest",
                     src : "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/chests/ui/chest-magical.png"
                 }
             ],
@@ -63,7 +63,7 @@ export default class ChestData extends Component {
                                             <img
                                         src={item.src}
                                         alt="chest-icon"
-                                        className="chest-icon d-block"
+                                        className="chest-icon d-inline-block"
                                     />
                                         );
                                     }

@@ -8,7 +8,7 @@ export default class extends Component {
         <span className="navbar-brand">
           <img src={Logo} alt="logo" className="mr-2" width="50" height="50" />
           <div className="d-md-inline-block d-none">
-            <div className="align-middle d-inline">Royal Stats</div>
+            <div className="align-middle d-inline text-monospace">Royal Stats</div>
           </div>
         </span>
         <div className="ml-auto">

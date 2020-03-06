@@ -9,7 +9,7 @@ export default class MemberTable extends Component {
             <Fragment>
                 <tr>
                     <th scope="row">
-                        {member.rank}
+                        {member.clanRank}
                     </th>
                     <td>
                         <Link to="/player">{member.name}</Link>

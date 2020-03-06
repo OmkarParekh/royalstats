@@ -40,21 +40,23 @@
     color: black;
 }
 .cardData{
-    flex-wrap: wrap;
-    margin: 20px 50px;
-    
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    margin: 30px auto;
 }
 .deck-info{
-    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin : 0 70%;
 }
 .copy-text{
     margin: 5px auto;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 30px;
     cursor: pointer;
     font-family: fantasy;
     border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 50px;
     padding: 10px;
     background-color: white;
 }

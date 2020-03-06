@@ -1,7 +1,5 @@
 .card-holder{
     margin: 10px 20px;
-    position: relative;
-    justify-content: space-around;
 }
 .card-image{
     width: 14vh;
@@ -9,14 +7,14 @@
    
 }
 .card-level{
-    position: absolute;
-    bottom: 8.5vh;
-    left: 4vh;
+    position: relative;
+    bottom: 40px;
     font-weight: bold;
-    color: white;
+    color: whitesmoke;
     cursor: pointer;
+    font-weight: 800;
 }
-.card-elixer{
+/* .card-elixer{
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(../../assest/img/elixer.png);
@@ -32,10 +30,11 @@
     position: absolute;
     left: 0.5vh;
     cursor: pointer;
-}
+} */
 .image-title{
     font-size: 20px;
     line-height: 30px;
     cursor: pointer;
     font-family: fantasy;
+
 }

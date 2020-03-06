@@ -23,11 +23,10 @@ export default class ClanStats extends Component {
 
     componentDidMount(){
         Axios.get('/clan/L0JL2Q')
-            .then(res => res)
-            .then(data => {
-                this.setState({clanData : data.data})
+            .then(res => {
+                this.setState({clanData : res.data})
             })
-            .catch(err => console.log(err))
+            
     }
 
 
@@ -37,7 +36,6 @@ export default class ClanStats extends Component {
         const {clanData} = this.state;
         const badge = Object.assign({}, clanData.badge) ;
         const loc = Object.assign({}, clanData.location) ; 
-        const tracking = Object.assign({}, clanData.tracking);
         return (
             <div>
 
@@ -69,7 +67,7 @@ export default class ClanStats extends Component {
                                 <div className="col-8 player-data-cont">
                                    <div className="clan-loc float-right">
                                         <p className="text-danger text-monospace">
-                                        {loc.code}
+                                        {loc.countryCode}
                                         </p>
                                    </div>
         
@@ -83,7 +81,7 @@ export default class ClanStats extends Component {
                                             <span className="text-monospace props-header">
                                             score
                                             <h6 className="props-value">
-                                            {clanData.score}
+                                            {clanData.clanScore}
                                             </h6>
                                             </span>
                                         </div>
@@ -97,7 +95,7 @@ export default class ClanStats extends Component {
                                             <span className="text-monospace props-header">
                                             Trophies Limits
                                             <h6 className="props-value">
-                                            {clanData.requiredScore}
+                                            {clanData.requiredTrophies}
                                             </h6>
                                             </span>
                                         </div>
@@ -111,7 +109,7 @@ export default class ClanStats extends Component {
                                             <span className="text-monospace props-header">
                                             warTrophies
                                             <h6 className="props-value">
-                                            {clanData.warTrophies}
+                                            {clanData.clanWarTrophies}
                                             </h6>
                                             </span>
                                         </div>
@@ -125,7 +123,7 @@ export default class ClanStats extends Component {
                                             <span className="text-monospace props-header">
                                             donations
                                             <h6 className="props-value">
-                                            {clanData.donations}
+                                            {clanData.donationsPerWeek}
                                             </h6>
                                             </span>
                                         </div>
@@ -139,7 +137,7 @@ export default class ClanStats extends Component {
                                             <span className="text-monospace props-header">
                                             memberCount
                                             <h6 className="props-value">
-                                            {`${clanData.memberCount}/50`}
+                                            {`${clanData.members}/50`}
                                             </h6>
                                             </span>
                                         </div>
@@ -164,7 +162,7 @@ export default class ClanStats extends Component {
 
                 <div className="container-fluid">
                     <Member 
-                        memberData = {clanData.members}
+                        memberData = {clanData.memberList}
                     />
                 </div>
 

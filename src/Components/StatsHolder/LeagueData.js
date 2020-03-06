@@ -74,7 +74,7 @@ export default class LeagueData extends Component {
                     Leagueid: 10, 
                     arena: "Ultimate Champion", 
                     trophyLimit:7000,
-                    trophyEnd: 7299,
+                    trophyEnd: 7500,
                     src: "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/leagues/league-champion-ultimate.png"
                 },
 
