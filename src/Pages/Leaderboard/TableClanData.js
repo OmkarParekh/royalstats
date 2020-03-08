@@ -17,10 +17,10 @@ export default class TableClanData extends Component {
     }
 
     componentDidMount(){
-        Axios.get(`/top/${this.state.reqParm}/IN`)
+        Axios.get(`/top/${this.state.reqParm}/57000016`)
         .then(res => {
           this.setState({
-              topClansStats: res.data
+              topClansStats: res.data.items
           })
       })
       .catch(err => console.log(err))
@@ -34,13 +34,13 @@ export default class TableClanData extends Component {
               <tbody>
                 {
                 topClansStats.filter(({rank}) => rank <= 20).
-                map(({tag, name, score, rank, memberCount, badge:{image}, location:{name: locationName, code}}) => {
+                  map(({tag, name, clanScore, rank, members, location:{countryCode, id}}) => {
                   return (
                     <tr>
                       <td className="align-middle">#{rank}</td>
                       <td className="align-middle">
                         <img
-                          src={image}
+                          src="https://cdn.statsroyale.com/images/badges/16000040.png"
                           alt="_trophy.png"
                           className="lb-icon-clan"
                         />
@@ -52,18 +52,18 @@ export default class TableClanData extends Component {
                           alt="_trophy.png"
                           className="lb-icon"
                         />
-                        {score}
+                        {clanScore}
                       </td>
                       <td className="align-middle">
                         {" "}
-                        <i class="fal fa-users mr-3"></i> {memberCount}/50
+                        <i class="fal fa-users mr-3"></i> {members}/50
                       </td>
-                      <td className="align-middle">{locationName}</td>
+                      {/* <td className="align-middle">{countryCode}</td> */}
                     </tr>
-                  );
+                   );
                 })}
               </tbody>
-            </table>
+            </table> 
             </div>
         )
     }

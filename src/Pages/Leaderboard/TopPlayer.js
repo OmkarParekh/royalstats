@@ -7,13 +7,13 @@ export default class TopPlayer extends Component {
     constructor() {
         super();
         this.state = {
-            activeCountry: "IN"
+            activeCountry: "57000016"
         }
     }
 
     hanndleCountry = (key) => {
 
-        console.log(key)
+        // console.log(key)
 
     }
 
@@ -32,8 +32,8 @@ export default class TopPlayer extends Component {
                                     <select className="custom-select lb-card_select-box border-0 bg-light">
                                         <option defaultChecked>Country</option>
                                         {regions.map(region => (
-                                            <option key={uuidv4()} value={region.key} 
-                                                onChange={this.hanndleCountry(this.value)}
+                                            <option key={uuidv4()} value={region.id} 
+                                                onChange={this.hanndleCountry(this.id)}
                                             >
                                                 {region.name}
                                             </option>

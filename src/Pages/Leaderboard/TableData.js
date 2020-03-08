@@ -16,27 +16,74 @@ export default class TableData extends Component {
     }
 
     componentDidMount() {
-        Axios.get('/top/players/IN')
-            .then(res => {
-                this.setState({
-                    topPlayer: res.data
-                })
-            })
-            .catch(err => console.log(err))
+       Axios.get('/top/players/57000016')
+        .then(res => {
+          this.setState({
+            topPlayer : res.data.items
+          })
+        })
     }
 
     render() {
         const { topPlayer } = this.state;
+        
         return (
             <div>
                 <table class="table table-hover mt-3 lb-table">
                     <tbody>
 
+
                   {
-                    topPlayer.filter(({rank}) => rank <= 10).map(({name:playerName, rank, tag:playerTag, trophies, clan : {name:className, tag:clanTag, badge: {image}}}, index ) => {
+                    // topPlayer.filter(({rank}) => rank <=  10)
+                      // items.map(({name, tag, rank, trophies, clan:{name:clanName, tag: clanTag}}) => console.log(name, tag ,trophies, clanName, clanTag,rank))
+                    Object.assign(topPlayer).filter((item, index) => index < 20)
+                    .map((item) => {
+                      return(
+                        <tr key={item.rank} 
+                          onClick={()=>{
+                            // document.write("player")
+                          }
+                        } >
+                        <td className="align-middle">#{item.rank}</td>
+                        <td className="align-middle">{item.name}</td>
+                        <td className="align-middle">
+                          <img
+                            src={Trophy}
+                            alt="_trophy.png"
+                            className="lb-icon"
+                          />
+                          {item.trophies}
+                        </td>
+                        <td className="align-middle">
+                          <img
+                            src={Champion_League}
+                            alt="_trophy.png"
+                            className="lb-icon"
+                          />
+                          Master III League 6
+                        </td>
+                        {/* <td className="align-middle">
+                        
+                            <img
+                            src="https://cdn.statsroyale.com/images/badges/16000040.png"
+                            alt="_trophy.png"
+                            className="lb-icon-clan"
+                          />
+                          
+                          {/* {className}
+                          {clanTag}  */}
+                          
+                        {/* </td> */} 
+                      </tr>
+                    )})
+                  }
+                  
+
+                  {/* {
+                    Object.values(items).filter(({rank}) => rank <= 10).map(({name:playerName, rank, tag:playerTag, trophies, clan : {name:className, tag:clanTag}}, index ) => {
                       return(
                         <tr key={rank} 
-                        onClick={()=>{
+                          onClick={()=>{
                             // document.write("player")
                           }
                         } >
@@ -59,33 +106,22 @@ export default class TableData extends Component {
                           Master III League 6
                         </td>
                         <td className="align-middle">
-
                         
-                          {
-                            image !== null &&
                             <img
                             // src="https://cdn.statsroyale.com/images/badges/16000040.png"
-                            src={ image }
+                            // src={ image }
                             alt="_trophy.png"
                             className="lb-icon-clan"
                           />
-                          }
-                          {
-                            image == null &&
-                            <img
-                            src="https://cdn.statsroyale.com/images/badges/16000040.png"
-                            alt="_trophy.png"
-                            className="lb-icon-clan"
-                          />
-                          }
+                          
                           {className}
-                          {/* {clanTag} */}
+                          {clanTag} 
                           
                         </td>
                       </tr>
                       );
                   })
-                }
+                } */}
 
 
              
