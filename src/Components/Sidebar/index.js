@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Sidebar from "react-sidebar";
 import Navbar from "../Navbar";
-import NavItems from "./NavItems";
+import SideNav from './SideNav';
 import "./sidebar.css";
 
 export default class extends Component {
