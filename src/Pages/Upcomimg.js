@@ -4,23 +4,32 @@ import '../css/Upcoming.css';
 
 import Axios from 'axios';
 import ChestData from '../Components/Upcoming Chest/chestData';
+import Loading from '../Components/Loader/loading'
 
 
 export default class Upcomimg extends Component {
-    constructor(){
+    constructor() {
         super();
-        this.state={
-           chest : []
+        this.state = {
+            chest: [],
+            isloading: true
         }
     }
 
-    componentDidMount(){
-        Axios.get('/player/8L9L9GL/chests')
-            .then(res => {
-                this.setState({
-                    chest : res.data.items
+    componentDidMount() {
+        const playerTag = localStorage.getItem('player');
+        if (playerTag) {
+            const player = playerTag.replace('#', '');
+            Axios.get(`/player/${player}/chests`)
+                .then(res => {
+                    this.setState({
+                        chest: res.data.items,
+                        isloading: false
+                    })
                 })
-            })
+                .catch(err => this.props.history.push('/error'));
+        }
+
     }
     render() {
 
@@ -28,7 +37,13 @@ export default class Upcomimg extends Component {
         console.log(chest)
 
         return (
-            <div className="container page-header">
+            <div>
+                {
+                    this.state.isloading &&
+                    <Loading />
+                }
+
+        <div className="container page-header">
                 <div className="header">
                     <img
                         src={option4}
@@ -43,18 +58,18 @@ export default class Upcomimg extends Component {
 
                 <div className="page-content row">
                     <div className="col-12 d-flex chest-data">
-                        
+
                         {
                             chest.map((item) => {
-                               
-                                return(
+
+                                return (
                                     <div className="chest-container text-center">
-                                    <ChestData 
-                                    chestName={item.name}
-                                    />
-                                    <span className="chest-pos text-monospace">
-                                        {item.index}
-                                    </span>
+                                        <ChestData
+                                            chestName={item.name}
+                                        />
+                                        <span className="chest-pos text-monospace">
+                                            {item.index}
+                                        </span>
                                     </div>
                                 );
 
@@ -63,6 +78,7 @@ export default class Upcomimg extends Component {
 
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

@@ -8,33 +8,25 @@ import Champion_League from "../../assets/img/leagues/champion.png";
 import "./leaderboard.css";
 
 export default class TableClanData extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            topClansStats: [],
-            reqParm : this.props.StatsFor
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemCount: 20
     }
+  }
 
-    componentDidMount(){
-        Axios.get(`/top/${this.state.reqParm}/57000016`)
-        .then(res => {
-          this.setState({
-              topClansStats: res.data.items
-          })
-      })
-      .catch(err => console.log(err))
-    }
 
-    render() {
-        const { topClansStats} = this.state;
-        return (
-            <div>
-                <table class="table table-hover mt-3 lb-table">
-              <tbody>
-                {
-                topClansStats.filter(({rank}) => rank <= 20).
-                  map(({tag, name, clanScore, rank, members, location:{countryCode, id}}) => {
+
+  render() {
+    const { itemCount } = this.state;
+    const { topClans } = this.props;
+    return (
+      <div>
+        <table class="table table-hover mt-3 lb-table">
+          <tbody>
+            {
+              topClans.filter(({ rank }) => rank <= this.state.itemCount).
+                map(({ tag, name, clanScore, rank, members, location: { countryCode, id } }) => {
                   return (
                     <tr>
                       <td className="align-middle">#{rank}</td>
@@ -56,15 +48,27 @@ export default class TableClanData extends Component {
                       </td>
                       <td className="align-middle">
                         {" "}
-                        <i class="fal fa-users mr-3"></i> {members}/50
+                        <i class="fas fa-users mr-3"></i> {members}/50
                       </td>
                       {/* <td className="align-middle">{countryCode}</td> */}
                     </tr>
-                   );
+                  );
                 })}
-              </tbody>
-            </table> 
-            </div>
-        )
-    }
+          </tbody>
+        </table>
+
+        <div className="text-center">
+          <span
+            className="btn lb-see_more_btn px-3"
+            onClick={() => {
+              this.setState({ itemCount: itemCount + 10 })
+            }
+            }
+          >
+            See All <i class="fas fa-arrow-down ml-2"></i>
+          </span>
+        </div>
+      </div>
+    )
+  }
 }

@@ -74,7 +74,7 @@ export default class LeagueData extends Component {
                     Leagueid: 10, 
                     arena: "Ultimate Champion", 
                     trophyLimit:7000,
-                    trophyEnd: 7500,
+                    trophyEnd: 8000,
                     src: "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/leagues/league-champion-ultimate.png"
                 },
 
@@ -93,7 +93,7 @@ export default class LeagueData extends Component {
                                 }
                                 if(pos.trophyLimit <= trophies && pos.trophyEnd >= trophies){
                                     return(
-
+                                        
                                         <img src={pos.src} className="d-block" alt="Badge-icon" width="50" height="55" />
                                     )
                                 }

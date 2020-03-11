@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import uuidv4 from "uuid/v4";
-import Axios from 'axios'
+import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import LeagueData from '../../Components/StatsHolder/LeagueData'
+
 
 import { regions } from "../../Constants";
 import Trophy from "../../assets/img/trophy.png";
@@ -8,127 +11,91 @@ import Champion_League from "../../assets/img/leagues/champion.png";
 import "./leaderboard.css";
 
 export default class TableData extends Component {
-    constructor() {
-        super();
-        this.state = {
-            topPlayer: []
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      itemCount: 20
     }
-
-    componentDidMount() {
-       Axios.get('/top/players/57000016')
-        .then(res => {
-          this.setState({
-            topPlayer : res.data.items
-          })
-        })
-    }
-
-    render() {
-        const { topPlayer } = this.state;
-        
-        return (
-            <div>
-                <table class="table table-hover mt-3 lb-table">
-                    <tbody>
+  }
 
 
-                  {
-                    // topPlayer.filter(({rank}) => rank <=  10)
-                      // items.map(({name, tag, rank, trophies, clan:{name:clanName, tag: clanTag}}) => console.log(name, tag ,trophies, clanName, clanTag,rank))
-                    Object.assign(topPlayer).filter((item, index) => index < 20)
-                    .map((item) => {
-                      return(
-                        <tr key={item.rank} 
-                          onClick={()=>{
-                            // document.write("player")
-                          }
-                        } >
-                        <td className="align-middle">#{item.rank}</td>
-                        <td className="align-middle">{item.name}</td>
-                        <td className="align-middle">
-                          <img
-                            src={Trophy}
-                            alt="_trophy.png"
-                            className="lb-icon"
-                          />
-                          {item.trophies}
-                        </td>
-                        <td className="align-middle">
-                          <img
-                            src={Champion_League}
-                            alt="_trophy.png"
-                            className="lb-icon"
-                          />
-                          Master III League 6
-                        </td>
-                        {/* <td className="align-middle">
+
+  render() {
+    const { topPlayerdata } = this.props;
+
+    return (
+      <div>
+        <table class="table table-hover mt-3 lb-table">
+          <tbody>
+
+
+            {
+              Object.assign(topPlayerdata).filter((item, index) => index < this.state.itemCount)
+                .map(({ rank, tag, name, trophies, arena:{name:arenaName}}) => {
+                  return (
+                    <tr key={rank}>
+                      <td className="align-middle">#{rank}</td>
+                      <td className="align-middle"
+                        onClick={() => localStorage.setItem('player', tag)}
+                      >
+                        <Link to="/player">{name}</Link>
+
+
+                      </td>
+                      <td className="align-middle">
+                        <img
+                          src={Trophy}
+                          alt="_trophy.png"
+                          className="lb-icon"
+                        />
+                        {trophies}
+                      </td>
+                      <td className="align-middle">
+
+                        <div className="d-flex">
+                        <LeagueData
+                          trophies={trophies}
+                        />
+                        <span className="mt-3"> {arenaName} </span>
+                        </div>
+                       
                         
-                            <img
-                            src="https://cdn.statsroyale.com/images/badges/16000040.png"
-                            alt="_trophy.png"
-                            className="lb-icon-clan"
-                          />
-                          
-                          {/* {className}
-                          {clanTag}  */}
-                          
-                        {/* </td> */} 
-                      </tr>
-                    )})
-                  }
-                  
+                        {/* <img
+                          src={Champion_League}
+                          alt="_trophy.png"
+                          className="lb-icon"
+                        />
+                        Master III League 6 */}
+                        </td> 
 
-                  {/* {
-                    Object.values(items).filter(({rank}) => rank <= 10).map(({name:playerName, rank, tag:playerTag, trophies, clan : {name:className, tag:clanTag}}, index ) => {
-                      return(
-                        <tr key={rank} 
-                          onClick={()=>{
-                            // document.write("player")
-                          }
-                        } >
-                        <td className="align-middle">#{rank}</td>
-                        <td className="align-middle">{playerName}</td>
-                        <td className="align-middle">
-                          <img
-                            src={Trophy}
-                            alt="_trophy.png"
-                            className="lb-icon"
-                          />
-                          {trophies}
-                        </td>
-                        <td className="align-middle">
-                          <img
-                            src={Champion_League}
-                            alt="_trophy.png"
-                            className="lb-icon"
-                          />
-                          Master III League 6
-                        </td>
-                        <td className="align-middle">
-                        
-                            <img
-                            // src="https://cdn.statsroyale.com/images/badges/16000040.png"
-                            // src={ image }
-                            alt="_trophy.png"
-                            className="lb-icon-clan"
-                          />
-                          
-                          {className}
-                          {clanTag} 
-                          
-                        </td>
-                      </tr>
-                      );
-                  })
-                } */}
+                      {/* {className} */}
+                      {/* {clanTag}  */}
+
+                    </tr>
+                  )
+                })
+            }
 
 
-             
-                    </tbody>
-                </table>
-            </div>
 
-        )
-    }
+          </tbody>
+        </table>
+
+        <div className="text-center">
+          <span
+            className="btn lb-see_more_btn px-3"
+            // onClick={() => {
+            //   this.setState({ itemCount: itemCount + 10 })
+            // }
+            // }
+            onClick={this.changeData}
+          >
+            See All <i class="fas fa-arrow-down ml-2"></i>
+          </span>
+        </div>
+      </div>
+
+    )
+  }
 }

@@ -43,7 +43,10 @@ export default class League extends Component {
 
 
 
-                                <div className="outer-box">
+                                {
+                                    this.previousSeason !== null &&
+
+                                    <div className="outer-box">
                                     <div className="inner-box text-center">
                                         <span className="d-block mt-2">Previous Season</span>
                                         <LeagueData
@@ -57,8 +60,14 @@ export default class League extends Component {
                                         </span>
                                     </div>
                                 </div>
+                                }
 
-                                <div className="outer-box">
+
+
+                                {
+                                    this.currentSeason !== null &&
+
+                                    <div className="outer-box">
                                     <div className="inner-box text-center">
                                         <span className="d-block mt-2">Currunt Season</span>
                                         <LeagueData
@@ -72,9 +81,12 @@ export default class League extends Component {
                                         </span>
                                     </div>
                                 </div>
+                                }
 
+                                {
+                                    this.bestSeason !== null &&
 
-                                <div className="outer-box">
+                                    <div className="outer-box">
                                     <div className="inner-box text-center">
                                         <span className="d-block mt-2">Best Season</span>
                                         {/* <img src={badge} className="d-block" alt="Badge-icon" width="50" height="55" /> */}
@@ -89,6 +101,7 @@ export default class League extends Component {
                                         </span>
                                     </div>
                                 </div>
+                                }
 
                             </div>
 

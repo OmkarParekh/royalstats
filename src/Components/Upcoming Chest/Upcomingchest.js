@@ -17,7 +17,10 @@ export default class Upcomingchest extends Component {
     }
 
     componentDidMount(){
-        Axios.get(`/player/${this.state.playerTag}/chests`)
+        const playerTag = localStorage.getItem('player');
+        if(playerTag){
+            const player = playerTag.replace('#', '');
+            Axios.get(`/player/${player}/chests`)
         .then((data) =>{
             const res = data.data;
             this.setState({
@@ -26,9 +29,7 @@ export default class Upcomingchest extends Component {
             })
         })
         .catch(err => console.log(err))
-
-
-
+        }
     }
 
     render() {

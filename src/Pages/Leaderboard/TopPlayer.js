@@ -2,22 +2,35 @@ import React, { Component } from 'react';
 import uuidv4 from "uuid/v4";
 import { regions } from "../../Constants";
 import TableData from './TableData';
+import Axios from 'axios';
+
 
 export default class TopPlayer extends Component {
     constructor() {
         super();
         this.state = {
-            activeCountry: "57000016"
+            activeCountry: '57000021',
+            topPlayer: []
         }
     }
 
-    hanndleCountry = (key) => {
+    
 
-        // console.log(key)
 
+    hanndleCountry = (e) => {
+        this.setState({
+            activeCountry : e.target.value
+        })
+
+        Axios.get(`/top/players/${this.state.activeCountry}`)
+            .then(res => {
+                this.setState({topPlayer : res.data.items})
+            })
+            .catch(err => this.props.history.push('/error'))
     }
 
     render() {
+        const { topPlayer } = this.state;
         return (
             <div>
                 <div className="container mt-3">
@@ -29,12 +42,12 @@ export default class TopPlayer extends Component {
                                     <div className="card-title lb-card_title px-3">Top Players</div>
                                 </div>
                                 <div className="col-6 text-right">
-                                    <select className="custom-select lb-card_select-box border-0 bg-light">
+                                    <select className="custom-select lb-card_select-box border-0 bg-light"
+                                        onChange = {this.hanndleCountry}>
                                         <option defaultChecked>Country</option>
-                                        {regions.map(region => (
-                                            <option key={uuidv4()} value={region.id} 
-                                                onChange={this.hanndleCountry(this.id)}
-                                            >
+                                        {regions.filter(region => region.isCountry===true)
+                                        .map(region => (
+                                            <option key={uuidv4()} value={region.id}>
                                                 {region.name}
                                             </option>
                                         ))}
@@ -45,14 +58,12 @@ export default class TopPlayer extends Component {
 
 
                             {/* {For player} */}
-                                <TableData />
+                            <TableData 
+                                topPlayerdata = {topPlayer}
+                            />
 
 
-                            <div className="text-center">
-                                <a href="/" className="btn lb-see_more_btn px-3">
-                                    See All <i class="fal fa-arrow-down ml-2"></i>
-                                </a>
-                            </div>
+
                         </div>
                     </div>
                 </div>

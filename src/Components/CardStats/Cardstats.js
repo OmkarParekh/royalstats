@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Card from '../../assest/img/cards.png'
 import './Cardstats.css';
 import Carditem from './Carditem';
-import arraysort from 'array-sort'
+import arraysort from 'array-sort';
+
 
 
 
@@ -11,7 +12,6 @@ export default class Cardstats extends Component {
         super(props);
         this.state = {
             activeOption: "All Cards",
-            isLoad: "false"
         }
     }
     render() {

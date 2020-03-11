@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/ClanStats.css';
 import Axios from 'axios';
+import Loading from '../Components/Loader/loading';
 
 import ScoreIcon from '../assest/img/trophy-ribbon.png';
 import Reqtrophy from '../assest/img/Trophy.png';
@@ -9,69 +10,85 @@ import donations from '../assest/img/cards.png';
 import people from '../assest/img/people.png';
 import social from '../assest/img/social.png';
 import Member from '../Components/ClanMembers/Member';
+import clanBadge from '../assest/img/A_Char_King_04.png';
 
 
 export default class ClanStats extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            clanData : [],
-            isLoading : false
+            clanData: [],
+            isLoading: true
         }
     }
 
+    componentDidMount() {
+        const clanTag = localStorage.getItem('clan');
+        if (clanTag) {
+            const clan = clanTag.replace('#', '');
+            Axios.get(`/clan/${clan}`)
+                .then(res => {
+                    this.setState({
+                        clanData: res.data,
+                        isLoading: false
+                    })
+                })
+                .catch(err => this.props.history.push('/error'))
+        }
 
-    componentDidMount(){
-        Axios.get('/clan/L0JL2Q')
-            .then(res => {
-                this.setState({clanData : res.data})
-            })
-            
+
     }
 
 
 
     render() {
 
-        const {clanData} = this.state;
-        const badge = Object.assign({}, clanData.badge) ;
-        const loc = Object.assign({}, clanData.location) ; 
+        const { clanData } = this.state;
+        const badge = Object.assign({}, clanData.badge);
+        const loc = Object.assign({}, clanData.location);
         return (
             <div>
 
-                            <div className="container-fluid player-stats">
+                {
+                    this.state.isLoading &&
+                    <Loading />
+                }
+                {
+                    !this.state.isLoading &&
+                    <div>
+                        <div className="container-fluid player-stats">
                             <div className="row p-4">
                                 <div className="col-4 d-block border-right border-danger ">
                                     <div className="d-flex">
-                                    <img
-                                        src={badge.image}
-                                        alt="_clan-icon"
-                                        className="c-icon d-inline-block"
-                                    />
-                                    <br></br>
-                                    <span className="text-monospace  clan-name">
-                                    {/* INDIA 24 */}
-                                    {clanData.name}
-                                    <h6 className="">
-                                    {clanData.tag}
-                                    </h6>
-                                    </span>
+                                        <img
+                                            src={clanBadge}
+                                            alt="_clan-icon"
+                                            className="c-icon d-inline-block"
+                                        />
+                                        <br></br>
+                                        <span className="text-monospace  clan-name">
+                                            {/* INDIA 24 */}
+                                            {clanData.name}
+                                            <h6 className="">
+                                                {clanData.tag}
+                                            </h6>
+                                        </span>
                                     </div>
-                                   
-                                    
+
+
                                     <br></br>
                                     <p className="text-muted text-justify">
-                                    {clanData.description}
+                                        {clanData.description}
                                     </p>
                                 </div>
                                 <div className="col-8 player-data-cont">
-                                   <div className="clan-loc float-right">
+                                    <div className="clan-loc float-right">
                                         <p className="text-danger text-monospace">
-                                        {loc.countryCode}
+                                            {loc.countryCode}
                                         </p>
-                                   </div>
-        
-                                   <div className="clan-props ">
+                                    </div>
+
+                                    <div className="clan-props ">
                                         <div className="props-item d-block">
                                             <img
                                                 src={ScoreIcon}
@@ -79,13 +96,13 @@ export default class ClanStats extends Component {
                                                 className="props-image d-inline-block"
                                             />
                                             <span className="text-monospace props-header">
-                                            score
+                                                score
                                             <h6 className="props-value">
-                                            {clanData.clanScore}
-                                            </h6>
+                                                    {clanData.clanScore}
+                                                </h6>
                                             </span>
                                         </div>
-        
+
                                         <div className="props-item d-block">
                                             <img
                                                 src={Reqtrophy}
@@ -93,13 +110,13 @@ export default class ClanStats extends Component {
                                                 className="props-image d-inline-block"
                                             />
                                             <span className="text-monospace props-header">
-                                            Trophies Limits
+                                                Trophies Limits
                                             <h6 className="props-value">
-                                            {clanData.requiredTrophies}
-                                            </h6>
+                                                    {clanData.requiredTrophies}
+                                                </h6>
                                             </span>
                                         </div>
-        
+
                                         <div className="props-item d-block">
                                             <img
                                                 src={WarT}
@@ -107,13 +124,13 @@ export default class ClanStats extends Component {
                                                 className="props-image d-inline-block"
                                             />
                                             <span className="text-monospace props-header">
-                                            warTrophies
+                                                warTrophies
                                             <h6 className="props-value">
-                                            {clanData.clanWarTrophies}
-                                            </h6>
+                                                    {clanData.clanWarTrophies}
+                                                </h6>
                                             </span>
                                         </div>
-        
+
                                         <div className="props-item d-block">
                                             <img
                                                 src={donations}
@@ -121,13 +138,13 @@ export default class ClanStats extends Component {
                                                 className="props-image d-inline-block"
                                             />
                                             <span className="text-monospace props-header">
-                                            donations
+                                                donations
                                             <h6 className="props-value">
-                                            {clanData.donationsPerWeek}
-                                            </h6>
+                                                    {clanData.donationsPerWeek}
+                                                </h6>
                                             </span>
                                         </div>
-        
+
                                         <div className="props-item d-block">
                                             <img
                                                 src={social}
@@ -135,13 +152,13 @@ export default class ClanStats extends Component {
                                                 className="props-image d-inline-block"
                                             />
                                             <span className="text-monospace props-header">
-                                            memberCount
+                                                memberCount
                                             <h6 className="props-value">
-                                            {`${clanData.members}/50`}
-                                            </h6>
+                                                    {`${clanData.members}/50`}
+                                                </h6>
                                             </span>
                                         </div>
-        
+
                                         <div className="props-item d-block">
                                             <img
                                                 src={people}
@@ -149,26 +166,28 @@ export default class ClanStats extends Component {
                                                 className="props-image d-inline-block"
                                             />
                                             <span className="text-monospace props-header">
-                                            type
+                                                type
                                             <h6 className="props-value">
-                                            {clanData.type}
-                                            </h6>
+                                                    {clanData.type}
+                                                </h6>
                                             </span>
                                         </div>
-                                   </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                <div className="container-fluid">
-                    <Member 
-                        memberData = {clanData.memberList}
-                    />
-                </div>
+                        <div className="container-fluid">
+                            <Member
+                                memberData={clanData.memberList}
+                            />
+                        </div>
+
+
+                    </div>
+                }
 
             </div>
-
-
 
         )
     }

@@ -41,12 +41,12 @@
   border-radius: 5px;
 }
 .home_button1 {
-  width: 25%;
+  width: auto;
   background-color: #ffb441;
   border: none;
   color: black;
   border: 1px solid;
-  padding: 10px 5px;
+  padding: 10px;
   border-radius: 5px;
   display: inline-block;
   margin-left: 10%;

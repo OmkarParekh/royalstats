@@ -1,34 +1,40 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import Playerstats from '../../Pages/Playerstats';
 
 
 export default class MemberTable extends Component {
+    SetTag = (tag) => {
+        
+        const memberTag = tag.substr(1);
+        localStorage.setItem('player',tag);
+    }
     render() {
-        const { member } = this.props;
+        const { member : { clanRank, tag, name, role, trophies, donations, donationsReceived, lastSeen} } = this.props;
+        const seen = new Date(lastSeen);
         return (
             <Fragment>
                 <tr>
                     <th scope="row">
-                        {member.clanRank}
+                        {clanRank}
                     </th>
                     <td>
-                        <Link to="/player">{member.name}</Link>
-                        
+                        <span onClick={() => localStorage.setItem('player', tag)} ><Link to="/player">{name}</Link> </span>
                     </td>
                     <td>
-                        {member.role}
+                        {role}
                     </td>
                     <td>
-                        {member.trophies}
+                        {trophies}
                     </td>
                     <td>
-                        {member.donations}
+                        {donations}
                     </td>
                     <td>
-                        {member.donationsReceived}
+                        {donationsReceived}
                     </td>
-                    <td className="d-flex">
-                        {member.lastSeen}
+                    <td>
+                        {lastSeen}
                     </td>
                 </tr>
             </Fragment>
