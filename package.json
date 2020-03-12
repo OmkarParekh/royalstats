@@ -28,7 +28,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://royal-stats.herokuapp.com",
+"proxy": "http://royal-stats.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",

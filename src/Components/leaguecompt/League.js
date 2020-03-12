@@ -34,7 +34,7 @@ export default class League extends Component {
                                 <img src={badge} alt="Badge-icon" width="50" height="55" />
                                 <span className="header-text">LeagueStats</span>
                             </div>
-                            <div className="offset-2 d-flex">
+                            <div className="data d-flex">
 
 
 
@@ -49,9 +49,11 @@ export default class League extends Component {
                                     <div className="outer-box">
                                     <div className="inner-box text-center">
                                         <span className="d-block mt-2">Previous Season</span>
+                                        <span  className="league-icon">
                                         <LeagueData
                                             trophies={previousSeason.bestTrophies}
                                         />
+                                        </span>
                                     </div>
                                     <div className="conternt-box d-flex mt-3 text-center">
                                         <span className="align-middle text-monospace">
@@ -70,9 +72,12 @@ export default class League extends Component {
                                     <div className="outer-box">
                                     <div className="inner-box text-center">
                                         <span className="d-block mt-2">Currunt Season</span>
+                                        <span className="league-icon">
                                         <LeagueData
                                             trophies={currentSeason.bestTrophies}
                                         />
+                                        </span>
+                                        
                                     </div>
                                     <div className="conternt-box d-flex mt-3 text-center">
                                         <span className="align-middle text-monospace">
@@ -88,11 +93,14 @@ export default class League extends Component {
 
                                     <div className="outer-box">
                                     <div className="inner-box text-center">
-                                        <span className="d-block mt-2">Best Season</span>
+                                        <span className="d-block text-center mt-2">Best Season</span>
                                         {/* <img src={badge} className="d-block" alt="Badge-icon" width="50" height="55" /> */}
+                                        <span className="league-icon">
                                         <LeagueData
                                             trophies={bestSeason.trophies}
                                         />
+                                        </span>
+                                        
                                     </div>
                                     <div className="conternt-box d-flex mt-3 text-center">
                                         <span className="align-middle text-monospace">

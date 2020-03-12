@@ -189,8 +189,8 @@ export default class ArenaData extends Component {
                         if(pos.trophyLimit <=trophies && pos.trophyEnd >= trophies ){
                           return(
                               <div>
-                            <img src={pos.src} className="arena-info-img" alt="arena" />
-                            <span className="arena-info-name">
+                            <img src={pos.src} className="arena-info-img d-block" alt="arena" />
+                            <span className="arena-info-name text-center">
                                 {pos.arena}
                             </span>
                             </div>

@@ -11,7 +11,6 @@ export default class MemberTable extends Component {
     }
     render() {
         const { member : { clanRank, tag, name, role, trophies, donations, donationsReceived, lastSeen} } = this.props;
-        const seen = new Date(lastSeen);
         return (
             <Fragment>
                 <tr>

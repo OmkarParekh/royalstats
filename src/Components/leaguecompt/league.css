@@ -8,6 +8,9 @@
     margin-bottom: 25px;
     padding: 25px;
 }
+.data{
+    margin-left: 20%;
+}
 .header-text{
     margin-top: 9px;
     margin-left: 20px;
@@ -19,10 +22,10 @@
 .outer-box{
     margin-right: 30px;
     width: 237px;
-height: 241px;
-background: #FFFFFF;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 20px;
+    height: 241px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
 }
 .inner-box{
     width: 217px;
@@ -51,4 +54,45 @@ margin-left: 10px;
     font-family: monospace;
     font-size: 20px;
     font-weight: bold;
+}
+@media only screen and (max-width : 988px){
+    .data{
+        margin-left: 15% ;
+    }
+}
+@media only screen and (max-width : 988px){
+    .data{
+        margin-left: 8%;
+    }
+}
+@media only screen and (max-width : 860px){
+    .outer-box{
+        width: 200px;
+    height: 195px;
+    }
+    .inner-box{
+        width: 200px;
+    height: 120px;
+    margin-left: 0;
+    } 
+    .icon-s{
+        margin-left: 55px;
+        width: 35px;
+        height: 35px;
+    }
+}
+@media only screen and (max-width : 786px){
+    .outer-box{
+        width: 180px;
+    height: 185px;
+    }
+    .inner-box{
+        width: 180px;
+    height: 120px;
+    margin-left: 0;
+    } 
+    .icon-sm{
+        width: 45px;
+        height: 45px;
+    }
 }
