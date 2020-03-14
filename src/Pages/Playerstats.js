@@ -50,7 +50,7 @@ export default class Playerstats extends Component {
         const playerTag = localStorage.getItem('player');
         if (playerTag) {
             const player = playerTag.replace('#', '');
-            Axios.get(`/player/${player}`, {headers: {"Access-Control-Allow-Origin": "*", 'Access-Control-Allow-Methods' : 'GET,'}})
+            Axios.get(`/player/${player}`)
                 .then(res => {
                     this.setState({
                         data: res.data,
@@ -93,7 +93,7 @@ export default class Playerstats extends Component {
                     <div>
                         <div className="container-fluid player-stats">
                             <div className="row">
-                                <div className="col-3 arena-info d-block">
+                                <div className="col-3 mt-3 arena-info d-md-block d-none text-center">
                                     <ArenaData
                                         trophies={data.trophies}
                                     />
@@ -129,7 +129,7 @@ export default class Playerstats extends Component {
                                                 <span className="item-name">
                                                     Throphies
                                                 </span>
-                                                <span className="item-divider"></span>
+                                                <span className="item-divider">................................</span>
                                                 <div className="item-data">
                                                     <img src={Trophy}
                                                         alt="Trophy-icon"
@@ -151,14 +151,14 @@ export default class Playerstats extends Component {
                                                     Clan
                                             </span>
                                                 <span className="item-divider">
-                                                    
+                                                ................................
                                             </span>
                                                 <div className="item-data">
                                                     <img src={Clanicon}
                                                         alt="hjh"
                                                         className="item-icon"
                                                     />
-                                                    <span className="item-value"
+                                                    <span className="item-value text-wrap"
                                                         onClick={() => localStorage.setItem('clan', clan.tag)}>
                                                         <Link to="/clan">{clan.name}</Link>
                                                     </span>

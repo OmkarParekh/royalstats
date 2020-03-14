@@ -190,7 +190,7 @@ export default class ArenaData extends Component {
                           return(
                               <div>
                             <img src={pos.src} className="arena-info-img d-block" alt="arena" />
-                            <span className="arena-info-name text-center">
+                            <span className="arena-info-name my-auto text-center">
                                 {pos.arena}
                             </span>
                             </div>

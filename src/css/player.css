@@ -13,7 +13,7 @@
 .arena-info-img{
    width: 35vh;
    height: 37vh;
-   margin-left: 20%;
+   margin-left: 15%;
 }
 
 .arena-info-name{
@@ -24,7 +24,7 @@ font-size: 29px;
 line-height: 43px;
 color: #AE9134;
 position: relative;
-left: 15%;
+/* left: 15%; */
 bottom: 15px;
 cursor: pointer;
 } 
@@ -50,7 +50,7 @@ cursor: pointer;
 .player-data-tag{
     position: relative;
     top: -20px;
-    left: 65px;
+    left: 58px;
     cursor: pointer;
 }
 
@@ -72,15 +72,15 @@ justify-content: center;
 margin-top: 4px;
 }
 .item-divider{
+    display: flex;
     font-style: normal;
 font-weight: bold;
-font-size: 20px;
+font-size: 23px;
 line-height: 29px;
 justify-content: center;
 align-items: center;
-border-bottom: 2px dotted black;
-flex: 1;
-padding: 3px;
+margin-left: 5px;
+margin-right: 5px;
 }
 .item-data{
     display: flex;
@@ -152,7 +152,12 @@ padding: 3px;
 }
 
 
-@media only screen and (min-width : 1244px){
+@media only screen and (max-width : 1440px){
+    .arena-info-name{
+    left: 15%;
+    }
+}
+@media only screen and (max-width : 1244px){
     .player-nav-option{
         margin-top: 5px;
     }
@@ -163,6 +168,14 @@ padding: 3px;
     .option-name{
     font-size: 19px;
     line-height: 15px;
+    }
+}
+@media only screen and (min-width : 1238px){
+    .item-divider{
+        flex: 2;
+    }
+    .player-data-tag{
+        left: 70px;
     }
 }
 
@@ -187,14 +200,32 @@ padding: 3px;
         font-size: 22px;
         line-height: 35px;
         left: 20%;
-        }  
+        } 
+        .arena-info-img{
+            width: 20vh;
+            height: 20vh;
+            margin-left: 4%;
+         }
+         .player-data-icon{
+            width: 6vh;
+        }
+        .player-data-tag{
+            left: 80px;
+        }
+
 }
-@media only screen and (max-width : 992px){
+@media(max-width : 850px){
     .arena-info-img{
         width: 28vh;
         height: 32vh;
         margin-left: 20%;
      }
+     .player-data-tag{
+         top:-10px;
+        left: 45px;
+    }
+}
+@media only screen and (max-width : 992px){
      .arena-info{
          margin-top: 5%;
      }
@@ -209,23 +240,45 @@ padding: 3px;
         line-height: 33px;
     }
 }
+@media (max-width: 926px){
+    .arena-info-name{
+        left: 15%;
+    }
+}
 @media only screen and (max-width : 860px){
     .arena-info-name{
         top: 10px;
         font-size: 18px;
         line-height: 25px;
     }
+
+
+}
+@media only screen and (max-width : 896px){
+    .item-icon{
+        width: 40px;
+        height: 46px;
+    }
+    .item-value{
+        font-size: 16px;
+        line-height: 25px;
+        width: 200px;
+    }
+    
 }
 @media only screen and (max-width : 786px){
     .arena-info-img{
-        width: 25vh;
-        height: 27vh;
-        margin-left: 15%;
+        width: 15vh;
+        height: 15vh;
      }
+     .arena-info{
+        margin-top: 7% !important;
+    }
      .arena-info-name{
-        font-size: 17px;
-        line-height: 25px;
-     }
+        top: 10px;
+        font-size: 15px;
+        line-height: 20px;
+    }
      .player-data-name{
         font-size: 25px;
         line-height: 30px;
@@ -238,4 +291,96 @@ padding: 3px;
         width: 40px;
         height: 40px;    
      }
+     .player-data-icon{
+        width: 4vh;
+    }
+    .player-data-tag{
+      
+        left: 50px;
+    }
+}
+@media (max-width : 538px){
+    .item-name{
+        font-size: 17px;
+        line-height: 25px;
+        width: 100px;
+        }
+        .player-option-items{
+            margin-left: 0;
+        }
+}
+
+@media (max-width : 502px){
+    .player-data-icon{
+        width: 4vh;
+    }
+    .player-option-items{
+        margin-left: -30px;
+    }
+    .player-nav-option{
+        margin-left: -35px;
+    }
+    .player-data-tag{
+        top: -9px;
+        left: 30px;
+    }
+}
+@media (max-width : 462px){
+    .player-nav-option{
+        margin-left: -50px;
+    }
+    .option-icon{
+        width: 40px;
+        height: 35px;
+    }
+    .item-divider{
+    font-size: 19px;
+    line-height: 23px;
+    }
+}
+@media (max-width : 454px){
+    .player-nav-option{
+        margin-left: -50px;
+    }
+    .option-name{
+        display: none;
+    }
+   
+}
+@media (max-width : 434px){
+    .item-name{
+        font-size: 16px;
+        line-height: 20px;
+        width: 80px;
+        } 
+        .item-divider{
+            font-size: 15px;
+            line-height: 17px;
+            }
+            .item-icon{
+                width: 35px;
+                height: 40px;
+            }
+
+}
+
+@media (max-width: 380px){
+    .item-icon{
+        width: 30px;
+        height: 30px;
+    }
+    .item-name{
+        font-size: 12px;
+        line-height: 16px;
+        width: 55px;
+        }
+        .item-value{
+            font-size: 12px;
+            line-height: 20px;
+            width: auto;
+        }
+        .item-divider{
+            font-size: 13px;
+            line-height: 15px;
+            }
 }

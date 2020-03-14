@@ -36,7 +36,7 @@ export default class StatsContainer extends Component {
 
 
 
-                        <div className="d-flex stats-header">
+                        <div className="d-flex text-wrap stats-header">
                             <span className="align-middle headerText">
                                         <img src={Trophy} className="align-middle stat-icon" alt="" />
                                         Trophies
@@ -65,7 +65,7 @@ export default class StatsContainer extends Component {
 
 
 
-                        <div className="d-flex stats-header-upper">
+                        <div className="d-flex stats-header-upper text-wrap">
                         <span className="align-middle headerText">
                                         <img src={battle} className="align-middle stat-icon" alt="" />
                                         Wins Stats
@@ -117,7 +117,7 @@ export default class StatsContainer extends Component {
                     <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 data-holder ">
 
 
-                    <div className="d-flex stats-header">
+                    <div className="d-flex stats-header text-wrap">
                     <span className="align-middle headerText">
                                         <img src={clanWar} className="align-middle stat-icon" alt="" />
                                         Clan War Stats
@@ -148,7 +148,7 @@ export default class StatsContainer extends Component {
 
 
 
-                        <div className="d-flex stats-header-upper">
+                        <div className="d-flex stats-header-upper text-wrap">
                             
                         <span className="align-middle headerText">
                                         <img src={tournament} className="align-middle stat-icon" alt="" />

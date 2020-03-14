@@ -88,7 +88,9 @@ margin-left: 20px;
 
 
 
-
+.data{
+    margin-left: 400px;
+}
 .outer-box{
     margin-right: 30px;
     width: 237px;
@@ -140,5 +142,55 @@ margin-left: 10px;
     .inner-box img{
         margin: auto;
         margin-top: 20px ;
+    }
+}
+@media only screen and (max-width : 516px){
+    .stats-data{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .stats-header{
+        margin-left: 0;
+    }
+    .stats-header-upper{
+        margin-left: -30px;
+    }
+}
+
+@media only screen and (max-width : 532px){
+    .data-holder{
+        padding: 15px;
+    }
+}
+@media (max-width : 434px){
+    .headerText{
+        font-size: 19px;
+        line-height: 29px;
+        }
+        .stat-icon{
+            width: 45px;
+            width: 45px;
+        }
+        .stat-icon-d{
+            width: 45px;
+            width: 45px;
+        }
+        .stats-header{
+            margin-left: -30px;
+        }
+        .statstext{
+        font-size: 15px;
+        line-height: 20px;
+        }
+        .statsData{
+            font-size: 14px;
+            line-height: 20px;
+            margin-left: 10px;
+            }
+}
+@media (max-width: 360px){
+    .stats-header-upper{
+        font-size: 19px;
+        line-height: 22px;
     }
 }
