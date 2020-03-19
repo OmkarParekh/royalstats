@@ -13,28 +13,12 @@
     color: whitesmoke;
     cursor: pointer;
     font-weight: 800;
+    /* left: 20px; */
 }
-/* .card-elixer{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url(../../assest/img/elixer.png);
-    width: 2rem;
-    height: 2rem;
-    color: #fff;
-    font-size: 1rem;
-    padding: .1rem .2rem .2rem ;
-    text-align: center;
-    vertical-align: middle;
-    text-shadow: 0 1px 3px #000;
-    font-weight: 700;
-    position: absolute;
-    left: 0.5vh;
-    cursor: pointer;
-} */
 .image-title{
     font-size: 20px;
     line-height: 30px;
     cursor: pointer;
     font-family: fantasy;
-
+    text-align: justify;
 }

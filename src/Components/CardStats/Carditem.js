@@ -17,8 +17,8 @@ export default class Carditem extends Component {
             alt="Card-img"
             className="card-image"
           />
-          <span className="card-level ">{`LVL ${card.level}`}</span>
-          <span className="d-block text-wrap text-center image-title" data-toggle="modal" data-target="#exampleModalCenter" >
+          <span className="card-level text-center">{`LVL ${card.level}`}</span>
+          <span className="d-block text-wrap text-center image-title">
             {card.name}
           </span>
         </div>

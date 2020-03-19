@@ -60,7 +60,7 @@ export default class Cardstats extends Component {
 
                         <span className="divider"></span>
 
-                        <div className="col-lg-12 cardData align-content-start">
+                        <div className="col-lg-12 cardData">
 
 
                             {
@@ -73,7 +73,7 @@ export default class Cardstats extends Component {
                                     )
                                 })
                             }
-
+                            </div>
                             {/* {
                                 this.state.activeOption === "By Elixir" &&
                                 arraysort(cards, 'elixir').map((item) => {
@@ -112,14 +112,12 @@ export default class Cardstats extends Component {
                                             })
                                         }
                                     </div>
-                                    <span className="copy-text ">Copy Deck</span>
                                 </div>
                             }
                         </div>
 
                     </div>
                 </div>
-            </div>
         )
     }
 }

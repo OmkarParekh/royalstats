@@ -8,11 +8,14 @@
     margin-top: 20px;
 }
 .clan-props{
-    display: grid;
-    grid-template-columns: repeat(3,auto);
+    display: flex;
+    /* grid-template-columns: repeat(auto-fit,minmax(400px, 1fr)); */
+    flex-wrap: wrap;
 }
 .props-item{
     margin: 20px;
+    max-width: 400px;
+    min-width: 300px;
 }
 .props-image{
     width: 60px;
@@ -27,4 +30,69 @@
     position: relative;
     left: 80px;
     top: -20px;
+}  
+@media (max-width: 760px){
+    .c-icon{
+        width: 80px;
+        height: 90px;
+    }
+    .clan-name{
+        font-size: 1.5rem;
+    }
+    .props-item{
+        max-width: 300px;
+        min-width: 200px;
+    }
+    .props-image{
+        width: 40px;
+        height: 40px;
+    }
+    .props-header{
+        font-size: 1.3rem;
+        line-height: 17px;
+    }
+    .props-value{
+        left: 60px;
+        top: -10px;
+    }
+}
+@media (max-width: 590px){
+    .props-item{
+        max-width: 200px;
+        min-width: 150px;
+    }
+    .props-image{
+        width: 30px;
+        height: 30px;
+    }
+    .props-header{
+    margin-left: 10px;
+        font-size: 1.2rem;
+        line-height: 15px;
+    }
+    .props-value{
+        left: 40px;
+        top: -10px;
+    }
+}
+/* @media (max-width: 460px){
+    .props-item{
+        max-width: 180px;
+        min-width: 150px;
+    }
+} */
+@media(max-width : 491px){
+    .props-item{
+        max-width: 200px;
+        min-width: 150px;
+    }
+    .props-header{
+        margin-left: 9px;
+            font-size: 1rem;
+            line-height: 15px;
+        }
+        .props-value{
+            left: 40px;
+            top: -10px;
+        }
 }

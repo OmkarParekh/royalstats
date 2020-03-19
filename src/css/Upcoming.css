@@ -24,3 +24,97 @@
     bottom: 5rem;
     color: whitesmoke;
 }
+
+@media only screen and (max-width : 1496px){
+    .chest-icon{
+        width: 120px;
+        height: 120px;
+    }
+    .page-content{
+        margin: 30px;
+    }
+}
+@media only screen and (max-width : 658px){
+    .chest-icon{
+        width: 100px;
+        height: 100px;
+    }
+    .page-content{
+        margin: 20px;
+    }
+}
+@media only screen and (max-width : 542px){
+    .chest-icon{
+        width: 90px;
+        height: 90px;
+    }
+    .page-content{
+        margin: 20px;
+    }
+    .chest-pos{
+        font-size: 1.7rem;
+        line-height: 25px;
+        bottom: 3rem;
+    }
+}
+@media only screen and (max-width : 542px){
+    .chest-icon{
+        width: 90px;
+        height: 90px;
+    }
+    .chest-container{
+        margin: 10px ;
+    }
+    .page-content{
+        margin: 0;
+    }
+    .page-icon{
+        width: 7vh;
+    }
+    .page-title{
+        font-size: 1.2rem;
+    
+    }
+}
+@media only screen and (max-width : 386px){
+    .chest-icon{
+        width: 80px;
+        height: 80px;
+    }
+    .chest-container{
+        margin: 9px ;
+    }
+    .page-content{
+        margin: 20px -10px;
+    }
+}
+@media only screen and (max-width : 350px){
+    .chest-icon{
+        width: 70px;
+        height: 70px;
+    }
+    .chest-container{
+        margin-right: 8px ;
+    }
+    .page-content{
+        margin: 20px -10px;
+    }
+}
+@media only screen and (max-width : 350px){
+    .chest-icon{
+        width: 60px;
+        height: 60px;
+    }
+    .chest-container{
+        margin-right: 8px ;
+    }
+    .page-content{
+        margin: 20px -10px;
+    }
+    .chest-pos{
+        font-size: 1.3rem;
+        line-height: 19px;
+        bottom: 2.7rem;
+    }
+}
+

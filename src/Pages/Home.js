@@ -5,6 +5,7 @@ import tournament_img from '../assest/img/hometournament.png';
 import battle_img from '../assest/img/homebattle.png';
 import { Link } from 'react-router-dom';
 import Loading from '../Components/Loader/loading';
+import Toast from '../Components/Toast/Toast';
 
 
 
@@ -14,21 +15,22 @@ export default class Home extends Component {
     this.state = {
       playerTag: '',
       selectOp: 'player',
-      isLoading: true
+      isLoading: true,
     }
   }
 
 
   componentWillMount() {
     this.setState({
-      isLoading: false
+      isLoading: false,
+      
     })
   }
 
 
   saveTag = (event) => {
     if (!event.target.value) {
-      console.log("err");
+      this.setState({inputEmpty : true})
     }
     else {
       localStorage.setItem(this.state.selectOp, event.target.value)
@@ -63,6 +65,7 @@ export default class Home extends Component {
               placeholder="TAG #XXXXXX "
               onChange={this.saveTag}
             />
+
             <Link to={`/${selectOp}`} className=" home_button1 text-center" style={{ 'text-decoration': 'none' }}>
               <i className="fas fa-search"></i><span className="ml-1">Search</span>
             </Link>

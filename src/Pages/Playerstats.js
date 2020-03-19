@@ -14,7 +14,6 @@ import option4 from '../assest/img/chest-background.png';
 
 import StatsContainer from '../Components/StatsHolder/StatsContainer';
 import Cardstats from '../Components/CardStats/Cardstats'
-import Upcomingchest from '../Components/Upcoming Chest/Upcomingchest';
 
 import Axios from 'axios';
 import League from '../Components/leaguecompt/League';
@@ -145,25 +144,35 @@ export default class Playerstats extends Component {
 
 
 
+                                            { 
+                                                clan === "null" &&
+                                                 <li className="player-option-items">
+                                                 <span className="item-name">
+                                                     Clan
+                                             </span>
+                                                 <span className="item-divider">
+                                                 ................................
+                                             </span>
+                                                 <div className="item-data">
+                                                     <img src={Clanicon}
+                                                         alt="hjh"
+                                                         className="item-icon"
+                                                     />
+                                                     
+                                                         
+                                                          <span className="item-value text-wrap"
+                                                          onClick={() => localStorage.setItem('clan', clan.tag)}>
+                                                          <Link to="/clan">
+                                                              {clan.name ? clan.name : "not in clan"}
+                                                          </Link>
+                                                      </span>
+                                                     
+                                                    
+                                                 </div>
+                                             </li>
 
-                                            <li className="player-option-items">
-                                                <span className="item-name">
-                                                    Clan
-                                            </span>
-                                                <span className="item-divider">
-                                                ................................
-                                            </span>
-                                                <div className="item-data">
-                                                    <img src={Clanicon}
-                                                        alt="hjh"
-                                                        className="item-icon"
-                                                    />
-                                                    <span className="item-value text-wrap"
-                                                        onClick={() => localStorage.setItem('clan', clan.tag)}>
-                                                        <Link to="/clan">{clan.name}</Link>
-                                                    </span>
-                                                </div>
-                                            </li>
+                                            }
+                                           
 
                                         </ul>
                                     </div>
@@ -208,10 +217,8 @@ export default class Playerstats extends Component {
                                                     alt="option-icon"
                                                     className="option-icon"
                                                 />
-                                                <span className="option-name align-center btn"
-                                                    onClick={() => this.setState({ activeTab: "upcomingChest" })}
-                                                >
-                                                    UpcomingChest
+                                                <span className="option-name align-center btn">
+                                                    <Link to="/player/chest" style={{'text-decoration' : 'none'}}>UpcomingChest</Link>
                                             </span>
                                             </li>
                                         </ul>

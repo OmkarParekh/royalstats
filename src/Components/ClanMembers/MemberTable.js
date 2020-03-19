@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Playerstats from '../../Pages/Playerstats';
-
+import './table.css';
 
 export default class MemberTable extends Component {
     SetTag = (tag) => {
@@ -18,22 +18,20 @@ export default class MemberTable extends Component {
                         {clanRank}
                     </th>
                     <td>
-                        <span onClick={() => localStorage.setItem('player', tag)} ><Link to="/player">{name}</Link> </span>
+                        <span className="d-block" onClick={() => localStorage.setItem('player', tag)} ><Link to="/player">{name}</Link> </span>
+                        {lastSeen}
                     </td>
-                    <td>
+                    <td className="text-center">
                         {role}
                     </td>
-                    <td>
+                    <td className="text-center">
                         {trophies}
                     </td>
-                    <td>
+                    <td className="text-center">
                         {donations}
                     </td>
-                    <td>
+                    <td className="text-center">
                         {donationsReceived}
-                    </td>
-                    <td>
-                        {lastSeen}
                     </td>
                 </tr>
             </Fragment>

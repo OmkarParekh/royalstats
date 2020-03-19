@@ -41,13 +41,13 @@
 }
 .cardData{
     display: grid;
-    grid-template-columns: repeat(9,1fr);
+    grid-template-columns: repeat(9, 1fr);
     margin: 30px auto;
 }
 .deck-info{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin : 0 70%;
+    grid-template-columns: repeat(9, 1fr);
+    margin-left: 30px;
 }
 .copy-text{
     margin: 5px auto;

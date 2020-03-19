@@ -18,7 +18,7 @@ export default class ClanStats extends Component {
         super(props);
         this.state = {
             clanData: [],
-            isLoading: true
+            isLoading: true,
         }
     }
 
@@ -26,6 +26,7 @@ export default class ClanStats extends Component {
         const clanTag = localStorage.getItem('clan');
         if (clanTag) {
             const clan = clanTag.replace('#', '');
+            this.setState({isLoading : true})
             Axios.get(`/clan/${clan}`)
                 .then(res => {
                     this.setState({
@@ -43,7 +44,7 @@ export default class ClanStats extends Component {
 
     render() {
 
-        const { clanData } = this.state;
+        const { clanData} = this.state;
         const badge = Object.assign({}, clanData.badge);
         const loc = Object.assign({}, clanData.location);
         return (
@@ -58,7 +59,13 @@ export default class ClanStats extends Component {
                     <div>
                         <div className="container-fluid player-stats">
                             <div className="row p-4">
-                                <div className="col-4 d-block border-right border-danger ">
+                            <div className="clan-loc col-12 float-right">
+                                        <p className="text-danger text-monospace">
+                                            {loc.countryCode}
+                                        </p>
+                                    </div>
+                            
+                                <div className="col-4 d-block offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 translate my-2">
                                     <div className="d-flex">
                                         <img
                                             src={clanBadge}
@@ -66,8 +73,7 @@ export default class ClanStats extends Component {
                                             className="c-icon d-inline-block"
                                         />
                                         <br></br>
-                                        <span className="text-monospace  clan-name">
-                                            {/* INDIA 24 */}
+                                        <span className="text-monospace clan-name">
                                             {clanData.name}
                                             <h6 className="">
                                                 {clanData.tag}
@@ -77,16 +83,12 @@ export default class ClanStats extends Component {
 
 
                                     <br></br>
-                                    <p className="text-muted text-justify">
-                                        {clanData.description}
-                                    </p>
+                                    <span className="text-secondary text-monospace text-justify">
+                                        {clanData.description} 
+                                    </span>
                                 </div>
-                                <div className="col-8 player-data-cont">
-                                    <div className="clan-loc float-right">
-                                        <p className="text-danger text-monospace">
-                                            {loc.countryCode}
-                                        </p>
-                                    </div>
+                                <div className="col-12  player-data-cont">
+                                    
 
                                     <div className="clan-props ">
                                         <div className="props-item d-block">
@@ -95,7 +97,7 @@ export default class ClanStats extends Component {
                                                 alt="_ClanStats"
                                                 className="props-image d-inline-block"
                                             />
-                                            <span className="text-monospace props-header">
+                                            <span className="text-monospace props-header text-wrap">
                                                 score
                                             <h6 className="props-value">
                                                     {clanData.clanScore}
@@ -110,7 +112,7 @@ export default class ClanStats extends Component {
                                                 className="props-image d-inline-block"
                                             />
                                             <span className="text-monospace props-header">
-                                                Trophies Limits
+                                                TrophiesLimits
                                             <h6 className="props-value">
                                                     {clanData.requiredTrophies}
                                                 </h6>

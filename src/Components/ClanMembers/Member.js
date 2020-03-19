@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import people from '../../assest/img/people.png';
 import MemberTable from './MemberTable';
+import './table.css';
 
 
 export default class Member extends Component {
@@ -18,7 +19,7 @@ export default class Member extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-12 p-2">
+                    <div className="col-12">
                         <div className="container-header d-flex">
 
 
@@ -39,15 +40,15 @@ export default class Member extends Component {
 
 
                                 <div class="dropdown-menu ml-1">
-                                    <span class="dropdown-item text-center btn"
+                                    <span class="dropdown-item option-item text-center btn"
                                         onClick={() => this.setState({ activeOption: "All Player" })}
                                     >
                                         All Player</span>
-                                    {/* <span class="dropdown-item text-center btn"
-                                            onClick={() => this.setState({ activeOption: "By Elixir" })}
+                                     <span class="dropdown-item text-center btn"
+                                            onClick={() => this.setState({ activeOption: "By Donations" })}
                                         >
-                                            By Elixer</span>
-                                        <span class="dropdown-item text-center btn"
+                                            By Donations</span>
+                                        {/*<span class="dropdown-item text-center btn"
                                             onClick={() => this.setState({ activeOption: "By Rearity" })}
                                         >
                                             By Rearity</span>
@@ -63,26 +64,20 @@ export default class Member extends Component {
 
                         </div>
 
-                        <div className="conatiner-fluid mt-3 mx-4">
-
-
-                                        
-
-                            <table className="table table-hover table-borderless text-center my-3">
+                        <div className="conatiner-fluid">
+                            <table className="table table-hover table-borderless">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Trophies</th>
-                                        <th scope="col">donations</th>
-                                        <th scope="col" className="text-wrap">DonationsReceived</th>
-                                        <th scope="col">Last Seen</th>
+                                        <th scope="col" className="text-center">Role</th>
+                                        <th scope="col" className="text-center">Trophies</th>
+                                        <th scope="col" className="text-center">donations</th>
+                                        <th scope="col" className="text-wrap hide text-center">Donations Received</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                        {
+                                        {this.state.activeOption === "All Player" &&
                                            Object.values(obj).map(MemberItem => {
                                                return(
                                                    <MemberTable 
@@ -91,24 +86,10 @@ export default class Member extends Component {
                                                )
                                            })
                                         }
-                                    
-                                    {/* <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr> */}
+
+                                        {
+                                            this.state.activeOption === ""
+                                        }
                                 </tbody>
                             </table>
                         </div>
