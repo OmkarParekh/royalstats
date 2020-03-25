@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Playerstats from '../../Pages/Playerstats';
+import { DateTime } from 'luxon';
 import './table.css';
 
 export default class MemberTable extends Component {
@@ -11,6 +11,7 @@ export default class MemberTable extends Component {
     }
     render() {
         const { member : { clanRank, tag, name, role, trophies, donations, donationsReceived, lastSeen} } = this.props;
+        const last = DateTime.fromISO(lastSeen);
         return (
             <Fragment>
                 <tr>
@@ -19,7 +20,7 @@ export default class MemberTable extends Component {
                     </th>
                     <td>
                         <span className="d-block" onClick={() => localStorage.setItem('player', tag)} ><Link to="/player">{name}</Link> </span>
-                        {lastSeen}
+                        {`${last.hour}:${last.minute}:${last.second}`}
                     </td>
                     <td className="text-center">
                         {role}

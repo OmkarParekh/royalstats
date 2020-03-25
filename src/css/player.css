@@ -365,6 +365,12 @@ margin-right: 5px;
 }
 
 @media (max-width: 380px){
+    .player-data-tag{
+        display: none;
+    }
+    .player-data-name{
+        margin-bottom: 5px;
+    }
     .item-icon{
         width: 30px;
         height: 30px;
@@ -377,10 +383,20 @@ margin-right: 5px;
         .item-value{
             font-size: 12px;
             line-height: 20px;
-            width: auto;
         }
         .item-divider{
             font-size: 13px;
             line-height: 15px;
             }
+}
+@media (min-width : 316px) and (max-width :404px){
+    
+    .item-name{
+        width: 40px;
+        }
+        .item-value{
+            font-size: 12px;
+            line-height: 20px;
+        }
+       
 }

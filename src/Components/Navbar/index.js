@@ -82,10 +82,14 @@ export default class extends Component {
                       <option value="clan">Clan</option>
                     </select>
                   </div>
-                  <div className="form-group">
+                  <div className="form-group col">
                     <label htmlFor="inputTag">Tag</label>
-                    <input type="text" className="form-control" id="inputTag" 
-                      onChange={this.handleSearchData}
+                    <input 
+                    type="text" 
+                    className="form-control"
+                    placeholder="Enter Tag" 
+                    id="inputTag" 
+                    onChange={this.handleSearchData}
                     />
                   </div>
                 </div>

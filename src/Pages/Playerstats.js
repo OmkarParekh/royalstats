@@ -145,7 +145,7 @@ export default class Playerstats extends Component {
 
 
                                             { 
-                                                clan === "null" &&
+                                                !(clan === "null") &&
                                                  <li className="player-option-items">
                                                  <span className="item-name">
                                                      Clan
@@ -185,40 +185,44 @@ export default class Playerstats extends Component {
 
                                     <div className="player-nav-option">
                                         <ul className="nav-options">
-                                            <li className="nav-option-item mr-1">
+                                            <li className="nav-option-item mr-1 btn"
+                                                onClick={() => this.setState({ activeTab: "playerStats" })}
+                                            >
                                                 <img
                                                     src={option1}
                                                     alt="option-icon"
                                                     className="option-icon"
                                                 />
-                                                <span className="option-name align-center btn"
-                                                    onClick={() => this.setState({ activeTab: "playerStats" })}
-                                                >
+                                                <span className="option-name align-center">
                                                     PlayerStats
                                             </span>
                                             </li>
 
-                                            <li className="nav-option-item mr-1">
+                                            <li className="nav-option-item mr-1"
+                                            onClick={() => this.setState({ activeTab: "cards" })}
+                                            >
                                                 <img
                                                     src={option2}
                                                     alt="option-icon"
                                                     className="option-icon"
                                                 />
                                                 <span className="option-name align-center btn"
-                                                    onClick={() => this.setState({ activeTab: "cards" })}
+                                                    
                                                 >
                                                     Cards
                                             </span>
                                             </li>
 
-                                            <li className="nav-option-item mr-1">
+                                            <li className="nav-option-item mr-1"
+                                                onClick = {() => this.props.history.push('/player/chest')}
+                                            >
                                                 <img
                                                     src={option4}
                                                     alt="option-icon"
                                                     className="option-icon"
                                                 />
                                                 <span className="option-name align-center btn">
-                                                    <Link to="/player/chest" style={{'text-decoration' : 'none'}}>UpcomingChest</Link>
+                                                    UpcomingChest
                                             </span>
                                             </li>
                                         </ul>

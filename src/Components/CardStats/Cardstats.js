@@ -40,14 +40,6 @@ export default class Cardstats extends Component {
                                             onClick={() => this.setState({ activeOption: "All Cards" })}
                                         >
                                             All Cards</span>
-                                        {/* <span class="dropdown-item text-center btn"
-                                            onClick={() => this.setState({ activeOption: "By Elixir" })}
-                                        >
-                                            By Elixer</span>
-                                        <span class="dropdown-item text-center btn"
-                                            onClick={() => this.setState({ activeOption: "By Rearity" })}
-                                        >
-                                            By Rearity</span> */}
                                         <hr />
                                         <span class="dropdown-item text-center btn"
                                             onClick={() => this.setState({ activeOption: "deck" })}
@@ -73,51 +65,31 @@ export default class Cardstats extends Component {
                                     )
                                 })
                             }
-                            </div>
-                            {/* {
-                                this.state.activeOption === "By Elixir" &&
-                                arraysort(cards, 'elixir').map((item) => {
-                                    return (
-                                        <Carditem
-                                            data={item}
-                                        />
-                                    );
-                                })
-                            }
-                            {
-                                this.state.activeOption === "By Rearity" &&
-                                arraysort(cards, 'rarity').map((item) => {
-                                    return (
-                                        <Carditem
-                                            data={item}
-                                        />
-                                    );
-                                })
-                            } */}
+                        </div>
 
-
-
-
+                        <div>
                             {
                                 this.state.activeOption === "deck" &&
-                                <div>
-                                    <div className="deck-info">
-                                        {
-                                            Object.values(currentDeck).map((item) => {
-                                                return (
-                                                    <Carditem
-                                                        data={item}
-                                                    />
-                                                );
-                                            })
-                                        }
-                                    </div>
+                                <div className="deck-info">
+                                    {
+                                        Object.values(currentDeck).map((item) => {
+                                            return (
+                                                <Carditem
+                                                    data={item}
+                                                />
+                                            );
+                                        })
+                                    }
                                 </div>
+                            }
+
+
+                        </div>
+                    </div>
                             }
                         </div>
 
-                    </div>
-                </div>
+            </div>
         )
     }
 }

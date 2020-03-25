@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./foot.css";
+import { Link } from 'react-router-dom';
 
 export default class extends Component {
   render = () => (
@@ -13,19 +14,22 @@ export default class extends Component {
             <h4>Menus</h4>
             <ul className="footer-links">
               <li>
-                <a href="#">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="#">Player</a>
+                <Link to="/player">Player</Link>
               </li>
               <li>
-                <a href="#">Clan</a>
+                <Link to="/clan">Clan</Link>
               </li>
               <li>
-                <a href="#">Battle</a>
+                <Link to="/top/players">Top Player</Link>
               </li>
               <li>
-                <a href="#">Tournament</a>
+                <Link to="/top/clans">Top Clans</Link>
+              </li>
+              <li>
+                <Link to="/top/clans/war">Top War Clans</Link>
               </li>
             </ul>
           </div>
@@ -55,7 +59,7 @@ export default class extends Component {
             <ul className="social-icons">
               <li>
                 <a className="facebook" href="#">
-                <i class="fab fa-facebook"></i>
+                <i className="fab fa-facebook"></i>
                 </a>
               </li>
               <li>
@@ -65,7 +69,7 @@ export default class extends Component {
               </li>
               <li>
                 <a className="github" href="#">
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
                 </a>
               </li>
             </ul>

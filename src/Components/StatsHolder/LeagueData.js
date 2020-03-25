@@ -26,7 +26,7 @@ export default class LeagueData extends Component {
                     arena: "challeger 3", 
                     trophyLimit: 4600,
                     trophyEnd: 4999,
-                    src: "https://raw.githubusercontent.com/smlbiobot/cr/master/ui/leagues/league-challeger-3.png"
+                    src: "https://raw.githubusercontent.com/weeco/clash-royale-assets/master/images/arenas/54000014.png"
                 },
                 {
                     Leagueid: 4, 
@@ -94,7 +94,7 @@ export default class LeagueData extends Component {
                                 if(pos.trophyLimit <= trophies && pos.trophyEnd >= trophies){
                                     return(
                                         
-                                        <img src={pos.src} className="icon-sm d-block" alt="Badge-icon" width="50" height="55" />
+                                        <img key={pos.Leagueid} src={pos.src} className="icon-sm d-block" alt="Badge-icon" width="50" height="55" />
                                     )
                                 }
                             })

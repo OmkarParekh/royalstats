@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uuidv4 from "uuid/v4";
 import Axios from 'axios'
-
+import { Link } from 'react-router-dom';
 import { regions } from "../../Constants";
 import Trophy from "../../assets/img/trophy.png";
 import Champion_League from "../../assets/img/leagues/champion.png";
@@ -36,7 +36,9 @@ export default class TableClanData extends Component {
                           alt="_trophy.png"
                           className="lb-icon-clan"
                         />
-                        {name}
+                        <Link to='/clan'
+                          onClick={() => localStorage.setItem('clan', tag)}
+                        > {name} </Link>
                       </td>
                       <td className="align-middle">
                         <img
@@ -46,11 +48,10 @@ export default class TableClanData extends Component {
                         />
                         {clanScore}
                       </td>
-                      <td className="align-middle">
+                      <td className="align-middle d-none d-lg-table-cell">
                         {" "}
                         <i class="fas fa-users mr-3"></i> {members}/50
                       </td>
-                      {/* <td className="align-middle">{countryCode}</td> */}
                     </tr>
                   );
                 })}

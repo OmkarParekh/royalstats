@@ -9,7 +9,7 @@ export default () => (
       <li className="list-group-item d-flex">
       <span className="text-monospace">
         <img src={playerLogo} alt="_player_logo" width="45" height="45"  className="mr-3" />
-        <Link to="/player" style={{'text-decoration' : 'none'}}>
+        <Link to="/player" style={{'textDecoration' : 'none'}}>
         Player
         </Link>
         </span>
@@ -17,7 +17,7 @@ export default () => (
       <li className="list-group-item">
       <span className="text-monospace text-wrap">
         <img src={playerLogo} alt="_player_logo" width="45" height="45"  className="mr-3" />
-        <Link to="/player/chest" style={{'text-decoration' : 'none'}}>
+        <Link to="/player/chest" style={{'textDecoration' : 'none'}}>
          Chest
         </Link>
       </span>
@@ -25,7 +25,7 @@ export default () => (
       <li className="list-group-item">
       <span className="text-monospace">
         <img src={playerLogo} alt="_player_logo" width="45" height="45"  className="mr-3" />
-        <Link to="/clan" style={{'text-decoration' : 'none'}}>
+        <Link to="/clan" style={{'textDecoration' : 'none'}}>
         Clans
         </Link>
       </span>
@@ -33,7 +33,7 @@ export default () => (
       <li className="list-group-item">
       <span className="text-monospace">
         <img src={playerLogo} alt="_player_logo" width="45" height="45"  className="mr-3" />
-        <Link to="/top/players" style={{'text-decoration' : 'none'}}>
+        <Link to="/top/players" style={{'textDecoration' : 'none'}}>
         Top Player
         </Link>
       </span>
@@ -41,7 +41,7 @@ export default () => (
       <li className="list-group-item">
       <span className="text-monospace">
         <img src={playerLogo} alt="_player_logo" width="45" height="45"  className="mr-3" />
-        <Link to="/top/clans" style={{'text-decoration' : 'none'}}>
+        <Link to="/top/clans" style={{'textDecoration' : 'none'}}>
         Top Clans
         </Link>
       </span>
@@ -49,7 +49,7 @@ export default () => (
       <li className="list-group-item">
       <span className="text-monospace">
         <img src={playerLogo} alt="_player_logo" width="45" height="45"  className="mr-3" />
-        <Link to="/top/clans/war" style={{'text-decoration' : 'none'}}>
+        <Link to="/top/clans/war" style={{'textDecoration' : 'none'}}>
         Top War Clans
         </Link>
       </span>

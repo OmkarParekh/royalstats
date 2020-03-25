@@ -80,13 +80,13 @@ export default class ClanStats extends Component {
                                             </h6>
                                         </span>
                                     </div>
-
+                                    </div>
 
                                     <br></br>
                                     <span className="text-secondary text-monospace text-justify">
                                         {clanData.description} 
                                     </span>
-                                </div>
+                                
                                 <div className="col-12  player-data-cont">
                                     
 

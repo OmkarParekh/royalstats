@@ -23,25 +23,22 @@ export default class TableData extends Component {
 
   render() {
     const { topPlayerdata } = this.props;
-
+    const  { itemCount } = this.state;
     return (
       <div>
-        <table class="table table-hover mt-3 lb-table">
+        <table class="table table-hover mt-3 lb-table table-responsive-sm">
           <tbody>
 
 
             {
-              Object.assign(topPlayerdata).filter((item, index) => index < this.state.itemCount)
+              Object.assign(topPlayerdata).filter((item, index) => index < itemCount)
                 .map(({ rank, tag, name, trophies, arena:{name:arenaName}}) => {
                   return (
                     <tr key={rank}>
                       <td className="align-middle">#{rank}</td>
                       <td className="align-middle"
-                        onClick={() => localStorage.setItem('player', tag)}
-                      >
-                        <Link to="/player">{name}</Link>
-
-
+                        onClick={() => localStorage.setItem('player', tag)}>
+                        <Link to="/player" style={{textDecoration : 'none'}}>{name}</Link>
                       </td>
                       <td className="align-middle">
                         <img
@@ -51,7 +48,7 @@ export default class TableData extends Component {
                         />
                         {trophies}
                       </td>
-                      <td className="align-middle">
+                      <td className="align-middle d-none d-lg-table-cell">
 
                         <div className="d-flex">
                         <LeagueData
@@ -59,18 +56,10 @@ export default class TableData extends Component {
                         />
                         <span className="mt-3"> {arenaName} </span>
                         </div>
-                       
-                        
-                        {/* <img
-                          src={Champion_League}
-                          alt="_trophy.png"
-                          className="lb-icon"
-                        />
-                        Master III League 6 */}
+
                         </td> 
 
-                      {/* {className} */}
-                      {/* {clanTag}  */}
+
 
                     </tr>
                   )
@@ -80,16 +69,13 @@ export default class TableData extends Component {
 
 
           </tbody>
-        </table>
+        </table>   
 
         <div className="text-center">
           <span
             className="btn lb-see_more_btn px-3"
-            // onClick={() => {
-            //   this.setState({ itemCount: itemCount + 10 })
-            // }
-            // }
-            onClick={this.changeData}
+            onClick={() => {
+              this.setState({ itemCount:  itemCount + 10 })}}
           >
             See All <i class="fas fa-arrow-down ml-2"></i>
           </span>

@@ -23,14 +23,14 @@ export default class Home extends Component {
   componentWillMount() {
     this.setState({
       isLoading: false,
-      
+
     })
   }
 
 
   saveTag = (event) => {
     if (!event.target.value) {
-      this.setState({inputEmpty : true})
+      this.setState({ inputEmpty: true })
     }
     else {
       localStorage.setItem(this.state.selectOp, event.target.value)
@@ -51,10 +51,11 @@ export default class Home extends Component {
         <div className="App">
           <div className="home">
             <label className="home_label1">RoyalStats</label>
-            <label className="home_label2">Eat Sleep Clash Repeat...</label>
+            <label className="home_label2">Access Player Data On FingureTouch...</label>
             <select className="home_select1"
               onChange={(e) => {
-                this.setState({ selectOp: e.target.value })}}
+                this.setState({ selectOp: e.target.value })
+              }}
             >
               <option value="player">Player</option>
               <option value="clan">Clan</option>
@@ -66,13 +67,13 @@ export default class Home extends Component {
               onChange={this.saveTag}
             />
 
-            <Link to={`/${selectOp}`} className=" home_button1 text-center" style={{ 'text-decoration': 'none' }}>
+            <Link to={`/${selectOp}`} className=" home_button1 text-center" style={{ 'textDecoration': 'none' }}>
               <i className="fas fa-search"></i><span className="ml-1">Search</span>
             </Link>
 
           </div>
         </div>
-        <div className="home_info container">
+        <div className="home_info container-fluid">
           <label className="home_label3">Features</label>
           <div className="home_features row">
             <div className="home_chest  col-md-4 col-xs-12 col-sm-12">
@@ -85,7 +86,7 @@ export default class Home extends Component {
             <div className="home_tournament  col-md-4 col-xs-12 col-sm-12">
               <img className="features_img" src={tournament_img} alt="" />
               <label className="home_label4">Tournament</label>
-              <p className="feature_info text-justify">
+              <p className="feature_info text-justify  text-center">
                 Check out our tournaments page to find free open tournaments.
             </p>
             </div>
